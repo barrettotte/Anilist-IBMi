@@ -1,0 +1,19 @@
+# Testing Anilist GraphQL queries
+
+
+### Get user  (barrettotte -> id: 247578)
+POST https://graphql.anilist.co HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": "{User(search:\"barrettotte\"){id name siteUrl stats{watchedTime}}}"
+}
+
+
+### Get anime list of user (array of lists)
+POST https://graphql.anilist.co HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": "{MediaListCollection(userId:247578, type:ANIME){lists{name entries{id mediaId}}}}"
+}
