@@ -1,0 +1,19 @@
+     A*%%TS  SD  20191205  004409  OTTEB       REL-V7R3M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A          R ALDR001
+     A*%%TS  SD  20191205  004409  OTTEB       REL-V7R3M0  5770-WDS
+     A                                      CA03(03 'exit')
+     A                                      CA05(05 'refresh')
+     A                                  2  2' '
+     A                                  2  4DATE
+     A                                      EDTCDE(Y)
+     A                                  3  4TIME
+     A                                  4  4USER
+     A                                  4 28'https://graphql.anilist.co'
+     A                                  2 34'Anilist Search'
+     A                                  7 20' '
+     A                                  8 17'Enter username:'
+     A            ALDFUSR       24   I  8 36
+     A                                 21 21'F3=Exit'
+     A                                 21 42'F5=Refresh'
