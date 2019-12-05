@@ -35,7 +35,7 @@ echo PATH=$PATH:/QOpenSys/pkgs/bin >> ~/.profile
 
 
 ## Commands
-* Using git with no SSL verification - ```git -c http.sslVerify=false clone https://github.com/barrettotte/hello-IBMi.git```
+* Using git with no SSL verification - ```git -c http.sslVerify=false clone https://github.com/barrettotte/Anilist-IBMi.git```
 * Build - ```gmake all```
 * Clean - ```gmake clean```
 * Copy dspf (display files are terrible to make by hand) - ```gmake cpydspf```
