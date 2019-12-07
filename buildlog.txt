@@ -1,0 +1,608 @@
+system -q "CRTLIB OTTEB1 TYPE(*TEST)"
+gmake: [makefile:30: OTTEB1.lib] Error 1 (ignored)
+system -q "CHGATR OBJ('src/aldspf.dspf') ATR(*CCSID) VALUE(1252)"
+system -q "CRTSRCPF FILE(OTTEB1/QDDSSRC) RCDLEN(132)"
+gmake: [makefile:65: aldspf.dspf] Error 1 (ignored)
+system "CPYFRMSTMF FROMSTMF('src/aldspf.dspf') TOMBR('/QSYS.lib/OTTEB1.lib/QDDSSRC.file/aldspf.mbr') MBROPT(*REPLACE)"
+CPCA081:  Stream file copied to object.
+system "CRTDSPF file(OTTEB1/aldspf) SRCFILE(OTTEB1/QDDSSRC)"
+CPI2126:  AUT parameter ignored.
+CPI2118:  Replaced object ALDSPF type *FILE was moved to QTEMP.
+CPC7301:  File ALDSPF created in library OTTEB1.
+  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           10/28/19 18:05:31        Page    1
+  File name . . . . . . . . . . . . . . . . . . . . . :   ALDSPF
+    Library name  . . . . . . . . . . . . . . . . . . :   OTTEB1
+  File attribute  . . . . . . . . . . . . . . . . . . :   Display
+  Source file containing DDS  . . . . . . . . . . . . :   QDDSSRC
+    Library name  . . . . . . . . . . . . . . . . . . :   OTTEB1
+  Source member containing DDS  . . . . . . . . . . . :   ALDSPF
+  Source member last changed  . . . . . . . . . . . . :   12/07/19  18:05:01
+  Source listing options  . . . . . . . . . . . . . . :   *SOURCE    *LIST      *NOSECLVL  *NOEVENTF
+  DDS generation severity level . . . . . . . . . . . :   20
+  DDS flagging severity level . . . . . . . . . . . . :   00
+  Authority . . . . . . . . . . . . . . . . . . . . . :   *LIBCRTAUT
+  Replace file  . . . . . . . . . . . . . . . . . . . :   *YES
+  Text  . . . . . . . . . . . . . . . . . . . . . . . :
+  Compiler  . . . . . . . . . . . . . . . . . . . . . :   IBM System i5 Data Description Processor
+                                       Data Description Source
+  SEQNBR  *...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8  Date
+     100       A*%%TS  SD  20191207  153401  OTTEB       REL-V7R3M0  5770-WDS
+     200       A*%%EC
+     300       A                                      DSPSIZ(24 80 *DS3)
+     400       A                                      INDARA
+     500       A          R ALDR001
+     600       A*%%TS  SD  20191205  004409  OTTEB       REL-V7R3M0  5770-WDS
+     700       A                                      CA03(03 'EXIT')
+     800       A                                      CA05(05 'REFRESH')
+     900       A                                  2  4DATE
+    1000       A                                      EDTCDE(Y)
+    1100       A                                  3  4TIME
+    1200       A                                  4  4USER
+    1300       A                                  4 28'https://graphql.anilist.co'
+    1400       A                                  2 34'Anilist Search'
+    1500       A                                  8 17'Enter username:'
+    1600       A            ALDFUSR       24   I  8 36
+    1700       A                                 21 21'F3=Exit'
+    1800       A                                 21 42'F5=Refresh'
+    1900       A          R ALDR002                   OVERLAY
+    2000       A*%%TS  SD  20191207  153401  OTTEB       REL-V7R3M0  5770-WDS
+    2100       A                                 13 11'Test'
+                          * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           10/28/19 18:05:31        Page    2
+                                           Expanded Source
+                                                                                           Field       Buffer position
+  SEQNBR  *...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8 length        Out     In
+     300                                              DSPSIZ(24 80 *DS3) INDARA
+                * Indicator Area:
+                *  *IN03        *IN05
+     500                  R ALDR001                   CA03(03 'EXIT') CA05(05 'REFRESH')
+     900                                          2  4DATE EDTCDE(Y)                           8
+    1100                                          3  4TIME                                     8
+    1200                                          4  4USER                                    10
+    1300                                          4 28'https://graphql.anilist.co'            26
+    1400                                          2 34'Anilist Search'                        14
+    1500                                          8 17'Enter username:'                       15
+    1600                    ALDFUSR       24A  I  8 36                                        24                    1
+    1700                                         21 21'F3=Exit'                                7
+    1800                                         21 42'F5=Refresh'                            10
+    1900                  R ALDR002                   OVERLAY
+    2100                                         13 11'Test'                                   4
+                  * * * * *   E N D   O F   E X P A N D E D   S O U R C E   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           10/28/19 18:05:31        Page    3
+                                           Message Summary
+     Total          Informational          Warning        Error       Severe
+                        (0-9)              (10-19)       (20-29)      (30-99)
+         0                 0                    0             0            0
+ * CPC7301      00               Message . . . . :   File ALDSPF created in library OTTEB1.
+                          * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    ** WWW.PUB400.COM **
+system -q "CRTSRCPF FILE(OTTEB1/QRPGLESRC)  RCDLEN(112)"
+gmake: [makefile:39: anilist.sqlrpgle] Error 1 (ignored)
+liblist -a OTTEB1;\
+setccsid 1252 src/anilist.sqlrpgle;\
+system -iK "CRTSQLRPGI OBJ(OTTEB1/anilist) SRCSTMF('src/anilist.sqlrpgle') RPGPPOPT(*LVL2) COMPILEOPT('OPTION(*NOUNREF) DBGVIEW(*LIST)   INCDIR(''./..'')') DBGVIEW(*NONE) COMMIT(*NONE) TEXT('')" ;\
+
+CPC7301:  File QSQLPRE created in library QTEMP.
+CPC7305:  Member ANILIST added to file QSQLPRE in QTEMP.
+CPC3201:  Member ANILIST file QSQLPRE in QTEMP changed.
+RNS9307:  Diagnostic check of source is complete. Highest severity is 00.
+CPC0904:  Data area RETURNCODE created in library QTEMP.
+CPC7301:  File QSQLTEMP1 created in library QTEMP.
+CPC7305:  Member ANILIST added to file QSQLTEMP1 in QTEMP.
+CPI2119:  AUT and USRPRF parameter values were ignored.
+CPI2118:  Replaced object ANILIST type *PGM was moved to QTEMP.
+RNS9304:  Program ANILIST placed in library OTTEB1. 00 highest severity. Created on 12/07/19 at 18:05:33.
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      1
+   Command  . . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     OTTEB
+   Program  . . . . . . . . . . . . :   ANILIST
+     Library  . . . . . . . . . . . :     OTTEB1
+   Text 'description' . . . . . . . :
+   Source stream file   . . . . . . :   src/anilist.sqlrpgle
+     CCSID  . . . . . . . . . . . . :     500
+   Text 'description' . . . . . . . :
+   Last Change  . . . . . . . . . . :   12/07/19  17:11:56
+   Generation severity level  . . . :   10
+   Default activation group . . . . :   *YES
+   Compiler options . . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *NOUNREF   *NOEVENTF
+   Debugging views  . . . . . . . . :   *LIST
+   Debug encryption key . . . . . . :   *NONE
+   Output . . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . . :   *NONE
+   Source listing indentation . . . :   *NONE
+   Type conversion options  . . . . :   *NONE
+   Sort sequence  . . . . . . . . . :   *JOB
+   Language identifier  . . . . . . :   *JOB
+   Replace program  . . . . . . . . :   *YES
+   User profile . . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . . :   *NONE
+   Target release . . . . . . . . . :   V7R3M0
+   Allow null values  . . . . . . . :   *NO
+   Define condition names . . . . . :   *NONE
+   Enable performance collection  . :   *PEP
+   Profiling data . . . . . . . . . :   *NOCOL
+   Licensed Internal Code options . :
+   Generate program interface . . . :   *NO
+   Include directory  . . . . . . . :   ./..
+   Preprocessor options . . . . . . :   *NORMVCOMMENT *EXPINCLUDE   *NOSEQSRC
+   Output source file . . . . . . . :   QSQLPRE
+     Library  . . . . . . . . . . . :     QTEMP
+   Output source member . . . . . . :   ANILIST
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      2
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1 **free                                                                                                               000001
+      2                                                                                                                      000002
+      3 ctl-opt main(main);                                                                                                  000003
+      4 ctl-opt option(*srcstmt :*noDebugIO: *nounref) dftActGrp(*no);                                                       000004
+      5 ctl-opt datfmt(*iso) timfmt(*iso);                                                                                   000005
+      6                                                                                                                      000006
+      7 dcl-f ALDSPF workstn indDs(dspf) usropn;                                                                             000007
+      8                                                                                                                      000008
+      9 dcl-ds dspf qualified;                                                                                               000009
+     10   exit    ind pos(3);                                                                                                000010
+     11   refresh ind pos(5);                                                                                                000011
+     12 end-ds;                                                                                                              000012
+     13                                                                                                                      000013
+     14 dcl-pr main extPgm('ANILIST') end-pr;                                                                                000014
+     15                                                                                                                      000015
+     16                                                                                                                      000016
+     17 dcl-proc main;                                                                                                       000017
+     18   open ALDSPF;                                                                                                       000018
+     19                                                                                                                      000019
+     20   doW not dspf.exit;                                                                                                 000020
+     21     exfmt ALDR001;                                                                                                   000021
+     22   enddo;                                                                                                             000022
+     23                                                                                                                      000023
+     24   resetDspf();                                                                                                       000024
+     25                                                                                                                      000025
+     26   on-exit;                                                                                                           000026
+     27     close *ALL;                                                                                                      000027
+     28                                                                                                                      000028
+     29 end-proc;                                                                                                            000029
+     30                                                                                                                      000030
+     31                                                                                                                      000031
+     32 dcl-proc resetDspf;                                                                                                  000032
+     33   // For some reason, I need to reset indicators                                                                     000033
+     34   //   even after closing a DSPF successfully.                                                                       000034
+     35   //   I should look more into this at some point.                                                                   000035
+     36   dspf.exit = *OFF;                                                                                                  000036
+     37 end-proc;                                                                                                            000037
+     38                                                                                                                      000038
+     39                                                                                                                      000039
+     40 dcl-proc toUpper;                                                                                                    000040
+     41   dcl-pi *n char(80);                                                                                                000041
+     42     s char(80) value;                                                                                                000042
+     43   end-pi;                                                                                                            000043
+     44                                                                                                                      000044
+     45   exec SQL set :s = upper(:s);                                                                                       000045
+     46   return s;                                                                                                          000046
+     47 end-proc;                                                                                                            000047
+        * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      3
+ Line   <---------------------- Data Records -------------------------------------------------------------->      Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10      Date   Id  Number
+                        C o m p i l e   T i m e   D a t a
+     * * * * *   E N D   O F   C O M P I L E   T I M E   D A T A   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      4
+                           M e s s a g e   S u m m a r y
+  Msg id  Sv Number Message text
+        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      5
+                             F i n a l   S u m m a r y
+   Message Totals:
+     Information  (00) . . . . . . . :        0
+     Warning      (10) . . . . . . . :        0
+     Error        (20) . . . . . . . :        0
+     Severe Error (30+)  . . . . . . :        0
+     ---------------------------------  -------
+     Total . . . . . . . . . . . . . :        0
+   Source Totals:
+     Records . . . . . . . . . . . . :       47
+     Specifications  . . . . . . . . :       22
+     Data records  . . . . . . . . . :        0
+     Comments  . . . . . . . . . . . :       18
+          * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
+ Diagnostic check of source is complete. Highest severity is 00.
+           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      1
+   Command  . . . . . . . . . . . . :   CRTBNDRPG
+     Issued by  . . . . . . . . . . :     OTTEB
+   Program  . . . . . . . . . . . . :   ANILIST
+     Library  . . . . . . . . . . . :     OTTEB1
+   Text 'description' . . . . . . . :
+   Source stream file   . . . . . . :   /QSYS.LIB/QTEMP.LIB/QSQLTEMP1.FILE/ANILIST.MBR
+     CCSID  . . . . . . . . . . . . :     500
+   Text 'description' . . . . . . . :
+   Last Change  . . . . . . . . . . :   12/07/19  18:05:32
+   Generation severity level  . . . :   10
+   Default activation group . . . . :   *YES
+   Compiler options . . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                        *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                        *DEBUGIO   *NOUNREF   *NOEVENTF
+   Debugging views  . . . . . . . . :   *LIST
+   Debug encryption key . . . . . . :   *NONE
+   Output . . . . . . . . . . . . . :   *PRINT
+   Optimization level . . . . . . . :   *NONE
+   Source listing indentation . . . :   *NONE
+   Type conversion options  . . . . :   *NONE
+   Sort sequence  . . . . . . . . . :   *JOB
+   Language identifier  . . . . . . :   *JOB
+   Replace program  . . . . . . . . :   *YES
+   User profile . . . . . . . . . . :   *USER
+   Authority  . . . . . . . . . . . :   *LIBCRTAUT
+   Truncate numeric . . . . . . . . :   *YES
+   Fix numeric  . . . . . . . . . . :   *NONE
+   Target release . . . . . . . . . :   V7R3M0
+   Allow null values  . . . . . . . :   *NO
+   Define condition names . . . . . :   *NONE
+   Enable performance collection  . :   *PEP
+   Profiling data . . . . . . . . . :   *NOCOL
+   Licensed Internal Code options . :
+   Generate program interface . . . :   *NO
+   Include directory  . . . . . . . :   ./..
+   Preprocessor options . . . . . . :   *NONE
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      2
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+                           S o u r c e   L i s t i n g
+      1 **free                                                                                                               000001
+      2                                                                                                                      000002
+      3 ctl-opt main(main);                                                                                                  000003
+      4 ctl-opt option(*srcstmt :*noDebugIO: *nounref) dftActGrp(*no);                                                       000004
+ 000005 ctl-opt datfmt(*iso) timfmt(*iso);                                                                                   000005
+ 000006                                                                                                                      000006
+         *--------------------------------------------------------------------*
+         * Compiler Options in Effect:                                        *
+         *--------------------------------------------------------------------*
+         *  Text 'description' . . . . . . . :                                *
+         *                                                                    *
+         *  Generation severity level  . . . :   10                           *
+         *  Default activation group . . . . :   *NO                          *
+         *  Compiler options . . . . . . . . :   *XREF      *GEN              *
+         *                                       *NOSECLVL  *SHOWCPY          *
+         *                                       *EXPDDS    *EXT              *
+         *                                       *NOSHOWSKP *SRCSTMT          *
+         *                                       *NODEBUGIO *NOUNREF          *
+         *                                       *NOEVENTF                    *
+         *  Optimization level . . . . . . . :   *NONE                        *
+         *  Source listing indentation . . . :   *NONE                        *
+         *  Type conversion options  . . . . :   *NONE                        *
+         *  Sort sequence  . . . . . . . . . :   *JOB                         *
+         *  Language identifier  . . . . . . :   *JOB                         *
+         *  User profile . . . . . . . . . . :   *USER                        *
+         *  Authority  . . . . . . . . . . . :   *LIBCRTAUT                   *
+         *  Truncate numeric . . . . . . . . :   *YES                         *
+         *  Fix numeric  . . . . . . . . . . :   *NONE                        *
+         *  Allow null values  . . . . . . . :   *NO                          *
+         *  Storage model . . .  . . . . . . :   *SNGLVL                      *
+         *  Binding directory from Command . :   *NONE                        *
+         *  Binding directory from Source  . :   *NONE                        *
+         *  Activation group . . . . . . . . :   *STGMDL                      *
+         *  Enable performance collection  . :   *PEP                         *
+         *  Profiling data . . . . . . . . . :   *NOCOL                       *
+         *  Generate program interface . . . :   *NO                          *
+         *--------------------------------------------------------------------*
+ 000007 dcl-f ALDSPF workstn indDs(dspf) usropn;                                                                             000007
+         *--------------------------------------------------------------------------------------------*
+         *                               RPG name         External name                               *
+         * File name. . . . . . . . . :  ALDSPF           OTTEB1/ALDSPF                               *
+         * Record format(s) . . . . . :  ALDR001          ALDR001                                     *
+         *                               ALDR002          ALDR002                                     *
+         *--------------------------------------------------------------------------------------------*
+ 000008                                                                                                                      000008
+ 000009 dcl-ds dspf qualified;                                                                                               000009
+ 000010   exit    ind pos(3);                                                                                                000010
+ 000011   refresh ind pos(5);                                                                                                000011
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      3
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+ 000012 end-ds;                                                                                                              000012
+ 000013                                                                                                                      000013
+ 000014 dcl-pr main extPgm('ANILIST') end-pr;                                                                                000014
+ 000015                                                                                                                      000015
+ 000016                                                                                                                      000016
+ 000017        /SET CCSID(*CHAR:*JOBRUNMIX)                                                                                  000017
+ 000018        // SQL COMMUNICATION AREA                                                //SQL                                000018
+ 000019        DCL-DS SQLCA;                                                            //SQL                                000019
+ 000020          SQLCAID CHAR(8) INZ(X'0000000000000000');                              //SQL                                000020
+ 000021           SQLAID CHAR(8) OVERLAY(SQLCAID);                                      //SQL                                000021
+ 000022          SQLCABC INT(10);                                                       //SQL                                000022
+ 000023           SQLABC BINDEC(9) OVERLAY(SQLCABC);                                    //SQL                                000023
+ 000024          SQLCODE INT(10);                                                       //SQL                                000024
+ 000025           SQLCOD BINDEC(9) OVERLAY(SQLCODE);                                    //SQL                                000025
+ 000026          SQLERRML INT(5);                                                       //SQL                                000026
+ 000027           SQLERL BINDEC(4) OVERLAY(SQLERRML);                                   //SQL                                000027
+ 000028          SQLERRMC CHAR(70);                                                     //SQL                                000028
+ 000029           SQLERM CHAR(70) OVERLAY(SQLERRMC);                                    //SQL                                000029
+ 000030          SQLERRP CHAR(8);                                                       //SQL                                000030
+ 000031           SQLERP CHAR(8) OVERLAY(SQLERRP);                                      //SQL                                000031
+ 000032          SQLERR CHAR(24);                                                       //SQL                                000032
+ 000033           SQLER1 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000033
+ 000034           SQLER2 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000034
+ 000035           SQLER3 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000035
+ 000036           SQLER4 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000036
+ 000037           SQLER5 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000037
+ 000038           SQLER6 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000038
+ 000039           SQLERRD INT(10) DIM(6) OVERLAY(SQLERR);                               //SQL                                000039
+ 000040          SQLWRN CHAR(11);                                                       //SQL                                000040
+ 000041           SQLWN0 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000041
+ 000042           SQLWN1 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000042
+ 000043           SQLWN2 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000043
+ 000044           SQLWN3 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000044
+ 000045           SQLWN4 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000045
+ 000046           SQLWN5 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000046
+ 000047           SQLWN6 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000047
+ 000048           SQLWN7 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000048
+ 000049           SQLWN8 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000049
+ 000050           SQLWN9 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000050
+ 000051           SQLWNA CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000051
+ 000052           SQLWARN CHAR(1) DIM(11) OVERLAY(SQLWRN);                              //SQL                                000052
+ 000053          SQLSTATE CHAR(5);                                                      //SQL                                000053
+ 000054           SQLSTT CHAR(5) OVERLAY(SQLSTATE);                                     //SQL                                000054
+ 000055        END-DS SQLCA;                                                            //SQL                                000055
+ 000056        DCL-PR SQLROUTE_CALL EXTPGM(SQLROUTE);                                   //SQL                                000056
+ 000057          CA LIKEDS(SQLCA);                                                      //SQL                                000057
+ 000058          *N BINDEC(4) OPTIONS(*NOPASS);                                         //SQL                                000058
+ 000059          *N CHAR(1) OPTIONS(*NOPASS);                                           //SQL                                000059
+ 000060        END-PR SQLROUTE_CALL;                                                    //SQL                                000060
+ 000061        DCL-PR SQLOPEN_CALL EXTPGM(SQLOPEN);                                     //SQL                                000061
+ 000062          CA LIKEDS(SQLCA);                                                      //SQL                                000062
+ 000063          *N BINDEC(4);                                                          //SQL                                000063
+ 000064        END-PR SQLOPEN_CALL;                                                     //SQL                                000064
+ 000065        DCL-PR SQLCLSE_CALL EXTPGM(SQLCLSE);                                     //SQL                                000065
+ 000066          CA LIKEDS(SQLCA);                                                      //SQL                                000066
+ 000067          *N BINDEC(4);                                                          //SQL                                000067
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      4
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+ 000068        END-PR SQLCLSE_CALL;                                                     //SQL                                000068
+ 000069        DCL-PR SQLCMIT_CALL EXTPGM(SQLCMIT);                                     //SQL                                000069
+ 000070          CA LIKEDS(SQLCA);                                                      //SQL                                000070
+ 000071          *N BINDEC(4);                                                          //SQL                                000071
+ 000072        END-PR SQLCMIT_CALL;                                                     //SQL                                000072
+ 000073        /RESTORE CCSID(*CHAR)                                                                                         000073
+ 000074        DCL-C SQLROUTE CONST('QSYS/QSQROUTE');                                   //SQL                                000074
+ 000075        DCL-C SQLOPEN CONST('QSYS/QSQROUTE');                                    //SQL                                000075
+ 000076        DCL-C SQLCLSE CONST('QSYS/QSQLCLSE');                                    //SQL                                000076
+ 000077        DCL-C SQLCMIT CONST('QSYS/QSQLCMIT');                                    //SQL                                000077
+ 000078        DCL-C SQFRD CONST(2);                                                    //SQL                                000078
+ 000079        DCL-C SQFCRT CONST(8);                                                   //SQL                                000079
+ 000080        DCL-C SQFOVR CONST(16);                                                  //SQL                                000080
+ 000081        DCL-C SQFAPP CONST(32);                                                  //SQL                                000081
+ 000001=IALDR001                                                                                                            1000001
+         *--------------------------------------------------------------------------------------------*                     1
+         * RPG record format  . . . . :  ALDR001                                                      *                     1
+         * External format  . . . . . :  ALDR001 : OTTEB1/ALDSPF                                      *                     1
+         *--------------------------------------------------------------------------------------------*                     1
+ 000002=I                             A    1   24  ALDFUSR                                                                  1000002
+ 000001=IALDR002                                                                                                            2000001
+         *--------------------------------------------------------------------------------------------*                     2
+         * RPG record format  . . . . :  ALDR002                                                      *                     2
+         * External format  . . . . . :  ALDR002 : OTTEB1/ALDSPF                                      *                     2
+         *--------------------------------------------------------------------------------------------*                     2
+ 000001=OALDR001                                                                                                            3000001
+         *--------------------------------------------------------------------------------------------*                     3
+         * RPG record format  . . . . :  ALDR001                                                      *                     3
+         * External format  . . . . . :  ALDR001 : OTTEB1/ALDSPF                                      *                     3
+         *--------------------------------------------------------------------------------------------*                     3
+ 000001=OALDR002                                                                                                            4000001
+         *--------------------------------------------------------------------------------------------*                     4
+         * RPG record format  . . . . :  ALDR002                                                      *                     4
+         * External format  . . . . . :  ALDR002 : OTTEB1/ALDSPF                                      *                     4
+         *--------------------------------------------------------------------------------------------*                     4
+ 000082 dcl-proc main;                                                                                                       000082
+ 000083   open ALDSPF;                                                                                                       000083
+ 000084                                                                                                                      000084
+ 000085   doW not dspf.exit;                                                                                 B01             000085
+ 000086     exfmt ALDR001;                                                                                    01             000086
+ 000087   enddo;                                                                                             E01             000087
+ 000088                                                                                                                      000088
+ 000089   resetDspf();                                                                                                       000089
+ 000090                                                                                                                      000090
+ 000091   on-exit;                                                                                                           000091
+ 000092     close *ALL;                                                                                                      000092
+ 000093                                                                                                                      000093
+ 000094 end-proc;                                                                                                            000094
+ 000095                                                                                                                      000095
+ 000096                                                                                                                      000096
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      5
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+ 000097 dcl-proc resetDspf;                                                                                                  000097
+ 000098   // For some reason, I need to reset indicators                                                                     000098
+ 000099   //   even after closing a DSPF successfully.                                                                       000099
+ 000100   //   I should look more into this at some point.                                                                   000100
+ 000101   dspf.exit = *OFF;                                                                                                  000101
+ 000102 end-proc;                                                                                                            000102
+ 000103                                                                                                                      000103
+ 000104                                                                                                                      000104
+ 000105 dcl-proc toUpper;                                                                                                    000105
+ 000106   dcl-pi *n char(80);                                                                                                000106
+ 000107     s char(80) value;                                                                                                000107
+ 000108   end-pi;                                                                                                            000108
+ 000109                                                                                                                      000109
+ 000110 **END-FREE                                                                                                           000110
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+ 000111 D                 DS                  STATIC                               SET                                       000111
+ 000112 D  SQL_00000              1      2B 0 INZ(128)                             length of header                          000112
+ 000113 D  SQL_00001              3      4B 0 INZ(1)                               statement number                          000113
+ 000114 D  SQL_00002              5      8U 0 INZ(0)                               invocation mark                           000114
+ 000115 D  SQL_00003              9      9A   INZ('0') CCSID(*JOBRUNMIX)           data is okay                              000115
+ 000116 D  SQL_00004             10    128A   CCSID(*JOBRUNMIX)                    end of header                             000116
+ 000117 D  SQL_00005            129    208A   CCSID(*JOBRUNMIX)                    S                                         000117
+ 000118 D  SQL_00006            209    288A   CCSID(*JOBRUNMIX)                    S                                         000118
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+ 000119 **FREE                                                                                                               000119
+ 000120 //*  exec SQL set :s = upper(:s);                                                                                    000120
+ 000121           SQL_00005 = S;                                                        //SQL                                000121
+ 000122           SQLER6 = -4;                                                          //SQL 1                              000122
+ 000123           SQLROUTE_CALL(                                                        //SQL                                000123
+ 000124                SQLCA                                                            //SQL                                000124
+ 000125              : SQL_00000                                                        //SQL                                000125
+ 000126           );                                                                    //SQL                                000126
+ 000127           IF SQL_00003 = '1';                                                   //SQL                B01             000127
+ 000128           EVAL S = SQL_00006;                                                   //SQL                 01             000128
+ 000129           ENDIF;                                                                //SQL                E01             000129
+ 000130   return s;                                                                                                          000130
+ 000131 end-proc;                                                                                                            000131
+        * * * * *   E N D   O F   S O U R C E   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      6
+           A d d i t i o n a l   D i a g n o s t i c   M e s s a g e s
+  Msg id  Sv   Statement    Message text
+ *RNF7066 00        000007  Record-Format ALDR002 not used for input or output.
+ *RNF7089 00        000007  RPG provides Separate-Indicator area for file ALDSPF.
+  * * * * *   E N D   O F   A D D I T I O N A L   D I A G N O S T I C   M E S S A G E S   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      7
+                           C r o s s   R e f e r e n c e
+       File and Record References:
+          File              Device             References (D=Defined)
+            Record
+          ALDSPF            WORKSTN                000007D     000083
+            ALDR001                                000007D    1000001     3000001      000086
+            ALDR002                                000007D    2000001     4000001
+       Global Field References:
+          Field             Attributes         References (D=Defined M=Modified)
+ *RNF7031 ALDFUSR           A(24)                 1000002D
+          DSPF              DS(99)                 000007      000009D     000085      000101M
+            EXIT            N(1)                   000010D     000085      000101
+ *RNF7031   REFRESH         N(1)                   000011D
+          MAIN              PROTOTYPE              000003      000014D     000082
+          RESETDSPF         PROTOTYPE              000089M     000097
+ *RNF7031 SQFAPP            CONST                  000081D
+ *RNF7031 SQFCRT            CONST                  000079D
+ *RNF7031 SQFOVR            CONST                  000080D
+ *RNF7031 SQFRD             CONST                  000078D
+ *RNF7031 SQLABC            B(9,0)                 000023D
+ *RNF7031 SQLAID            A(8)                   000021D
+          SQLCA             DS(136)                000019D     000057      000062      000066
+                                                   000070      000124
+          SQLCABC           I(10,0)                000022D     000023
+          SQLCAID           A(8)                   000020D     000021
+          SQLCLSE           CONST                  000065      000076D
+ *RNF7031 SQLCLSE_CALL      PROTOTYPE              000065D
+          SQLCMIT           CONST                  000069      000077D
+ *RNF7031 SQLCMIT_CALL      PROTOTYPE              000069D
+ *RNF7031 SQLCOD            B(9,0)                 000025D
+          SQLCODE           I(10,0)                000024D     000025
+ *RNF7031 SQLERL            B(4,0)                 000027D
+ *RNF7031 SQLERM            A(70)                  000029D
+ *RNF7031 SQLERP            A(8)                   000031D
+          SQLERR            A(24)                  000032D     000033      000034      000035
+                                                   000036      000037      000038      000039
+ *RNF7031 SQLERRD(6)        I(10,0)                000039D
+          SQLERRMC          A(70)                  000028D     000029
+          SQLERRML          I(5,0)                 000026D     000027
+          SQLERRP           A(8)                   000030D     000031
+ *RNF7031 SQLER1            B(9,0)                 000033D
+ *RNF7031 SQLER2            B(9,0)                 000034D
+ *RNF7031 SQLER3            B(9,0)                 000035D
+ *RNF7031 SQLER4            B(9,0)                 000036D
+ *RNF7031 SQLER5            B(9,0)                 000037D
+          SQLER6            B(9,0)                 000038D     000122M
+          SQLOPEN           CONST                  000061      000075D
+ *RNF7031 SQLOPEN_CALL      PROTOTYPE              000061D
+          SQLROUTE          CONST                  000056      000074D
+          SQLROUTE_CALL     PROTOTYPE              000056D     000123M
+          SQLSTATE          A(5)                   000053D     000054
+ *RNF7031 SQLSTT            A(5)                   000054D
+ *RNF7031 SQLWARN(11)       A(1)                   000052D
+ *RNF7031 SQLWNA            A(1)                   000051D
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      8
+ *RNF7031 SQLWN0            A(1)                   000041D
+ *RNF7031 SQLWN1            A(1)                   000042D
+ *RNF7031 SQLWN2            A(1)                   000043D
+ *RNF7031 SQLWN3            A(1)                   000044D
+ *RNF7031 SQLWN4            A(1)                   000045D
+ *RNF7031 SQLWN5            A(1)                   000046D
+ *RNF7031 SQLWN6            A(1)                   000047D
+ *RNF7031 SQLWN7            A(1)                   000048D
+ *RNF7031 SQLWN8            A(1)                   000049D
+ *RNF7031 SQLWN9            A(1)                   000050D
+          SQLWRN            A(11)                  000040D     000041      000042      000043
+                                                   000044      000045      000046      000047
+                                                   000048      000049      000050      000051
+                                                   000052
+          TOUPPER           A(80)                  000105
+                            PROTOTYPE
+       Field References for subprocedure MAIN
+          Field             Attributes         References (D=Defined M=Modified)
+          No references in the source.
+       Field References for subprocedure RESETDSPF
+          Field             Attributes         References (D=Defined M=Modified)
+          No references in the source.
+       Field References for subprocedure TOUPPER
+          Field             Attributes         References (D=Defined M=Modified)
+          S                 A(80)                  000107D     000121      000128M     000130
+          SQL_00000         B(4,0)                 000112D     000125
+ *RNF7031 SQL_00001         B(4,0)                 000113D
+ *RNF7031 SQL_00002         U(10,0)                000114D
+          SQL_00003         A(1)                   000115D     000127
+ *RNF7031 SQL_00004         A(119)                 000116D
+          SQL_00005         A(80)                  000117D     000121M
+          SQL_00006         A(80)                  000118D     000128
+       Indicator References:
+          Indicator                            References (D=Defined M=Modified)
+        * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      9
+                       E x t e r n a l   R e f e r e n c e s
+       Statically bound procedures:
+          Procedure                            References
+          No references in the source.
+       Imported fields:
+          Field             Attributes         Defined
+          No references in the source.
+       Exported fields:
+          Field             Attributes         Defined
+          No references in the source.
+    * * * * *   E N D   O F   E X T E R N A L   R E F E R E N C E S   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page     10
+                           M e s s a g e   S u m m a r y
+  Msg id  Sv Number Message text
+ *RNF7031 00     37 The name or indicator is not referenced.
+ *RNF7066 00      1 Record-Format name of Externally-Described file is not used.
+ *RNF7089 00      1 RPG provides Separate-Indicator area for file.
+        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page     11
+                             F i n a l   S u m m a r y
+   Message Totals:
+     Information  (00) . . . . . . . :       39
+     Warning      (10) . . . . . . . :        0
+     Error        (20) . . . . . . . :        0
+     Severe Error (30+)  . . . . . . :        0
+     ---------------------------------  -------
+     Total . . . . . . . . . . . . . :       39
+   Source Totals:
+     Records . . . . . . . . . . . . :      136
+     Specifications  . . . . . . . . :      105
+     Data records  . . . . . . . . . :        0
+     Comments  . . . . . . . . . . . :       20
+          * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
+ Program ANILIST placed in library OTTEB1. 00 highest severity. Created on 12/07/19 at 18:05:33.
+           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
+                                                    ** WWW.PUB400.COM **
+Build finished!
