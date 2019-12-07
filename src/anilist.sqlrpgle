@@ -1,29 +1,31 @@
 **free
 
-ctl-opt option(*srcStmt :*noDebugIO) dftActGrp(*no);
+ctl-opt option(*srcstmt :*noDebugIO: *nounref) dftActGrp(*no);
+ctl-opt datfmt(*iso) timfmt(*iso);
 ctl-opt main(main);
 
-/INCLUDE './headers/anilist_h.rpgle'
+
+dcl-pr main extPgm('ANILIST') end-pr;
+
+dcl-f ANISEARCH workstn indDs(dspInds);
+
+dcl-ds dspInds;
+  exit_03    ind pos(3);
+  refresh_05 ind pos(5);
+end-ds;
 
 dcl-proc main;
-  exec SQL
-    set option commit = *NONE, datFmt = *ISO;
+  
+  exfmt ALDR001;
 
-  dcl-s x char(40);
-  x = toUpperCase('hello');
+  doW not exit_03;
+    if exit_03;
+      leave;
+    endif;
+    exfmt ALDR001;
+  enddo;
 
-  dsply (x);
-
+  dsply ('hello');
+  
   return;
-end-proc;
-
-dcl-proc toUpperCase;
-  dcl-pi *n char(40);
-    textIn char(40) const;
-  end-pi;
-  dcl-s textOut char(40);
-
-  exec SQL
-    values upper(:textIn) into :textOut;
-  return textOut;
 end-proc;

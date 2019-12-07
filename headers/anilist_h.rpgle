@@ -1,4 +1,4 @@
 **free
 
-dcl-pr main EXTPGM('ANILIST') end-pr;
+dcl-pr main extPgm('ANILIST') end-pr;
 

@@ -20,10 +20,11 @@ CCFLAGS=OPTIMIZE(10) ENUM(*INT) TERASPACE(*YES) STGMDL(*INHERIT) SYSIFCOPT(*IFSI
 CCFLAGSB=OPTION(*STDLOGMSG) OUTPUT(*print) OPTIMIZE(10) ENUM(*INT) TERASPACE(*YES) SYSIFCOPT(*IFSIO) DBGVIEW(*ALL) INCDIR($(INCLUDE)) 
 
 
-all:	$(BIN_LIB).lib anilist.sqlrpgle
+all:	$(BIN_LIB).lib anisearch.dspf anilist.sqlrpgle
 
-copydspf:
+copy:
 	system "CPYTOSTMF FROMMBR('/QSYS.LIB/OTTEB1.LIB/QDDSSRC.FILE/ANISEARCH.MBR') TOSTMF('/home/OTTEB/Anilist-IBMi/src/anisearch.dspf') STMFOPT(*REPLACE)"
+	system "CPYTOSTMF FROMMBR('/QSYS.LIB/OTTEB1.LIB/QRPGLESRC.FILE/ANILIST.MBR') TOSTMF('/home/OTTEB/Anilist-IBMi/src/anilist.sqlrpgle') STMFOPT(*REPLACE)"
 
 # ----------------------------------------------------------------------------
 

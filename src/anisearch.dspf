@@ -1,10 +1,11 @@
      A*%%TS  SD  20191205  004409  OTTEB       REL-V7R3M0  5770-WDS
      A*%%EC
      A                                      DSPSIZ(24 80 *DS3)
+     A                                      INDARA
      A          R ALDR001
      A*%%TS  SD  20191205  004409  OTTEB       REL-V7R3M0  5770-WDS
-     A                                      CA03(03 'exit')
-     A                                      CA05(05 'refresh')
+     A                                      CA03(03 'EXIT')
+     A                                      CA05(05 'REFRESH')
      A                                  2  2' '
      A                                  2  4DATE
      A                                      EDTCDE(Y)
