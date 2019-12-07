@@ -1,7 +1,7 @@
 # Anilist-IBMi
 
 
-A primitive RPGLE wrapper and display file built over the Anilist GraphQL API (Just for fun/practice).
+A basic display file built over the Anilist GraphQL API (Just for fun/practice).
 
 
 This is my first IBM i side project using GNU Make, git, and VS Code(minus DSPFs)
@@ -44,4 +44,4 @@ echo PATH=$PATH:/QOpenSys/pkgs/bin >> ~/.profile
 ## References
 * RPG & DB2 Summit 2019 - Liam's session on git + IBMi
 * https://github.com/NielsLiisberg/RPG-vsCode-Getting-Started
-
+* Fix DSPF open in linear main https://www.rpgpgm.com/2018/09/closing-all-files-with-one-operation-in.html
