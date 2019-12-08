@@ -33,7 +33,6 @@ dcl-proc main;
 
   on-exit;
     close *ALL;
-
 end-proc;
 
 
