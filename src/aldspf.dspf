@@ -1,21 +1,72 @@
-     A*%%TS  SD  20191207  153401  OTTEB       REL-V7R3M0  5770-WDS
+     A*%%TS  SD  20191208  175833  OTTEB       REL-V7R3M0  5770-WDS
      A*%%EC
      A                                      DSPSIZ(24 80 *DS3)
      A                                      INDARA
      A          R ALDR001
-     A*%%TS  SD  20191205  004409  OTTEB       REL-V7R3M0  5770-WDS
+     A*%%TS  SD  20191208  175833  OTTEB       REL-V7R3M0  5770-WDS
      A                                      CA03(03 'EXIT')
      A                                      CA05(05 'REFRESH')
+     A                                      CA12(12 'CANCEL')
      A                                  2  4DATE
      A                                      EDTCDE(Y)
      A                                  3  4TIME
      A                                  4  4USER
-     A                                  4 28'https://graphql.anilist.co'
-     A                                  2 34'Anilist Search'
-     A                                  8 17'Enter username:'
-     A            ALDFUSR       24   I  8 36
-     A                                 21 21'F3=Exit'
-     A                                 21 42'F5=Refresh'
-     A          R ALDR002                   OVERLAY
-     A*%%TS  SD  20191207  153401  OTTEB       REL-V7R3M0  5770-WDS
-     A                                 13 11'Test'
+     A                                  2 29'Anilist Search'
+     A                                 18 41'+-----------------+----------------
+     A                                      +'
+     A                                 18  4'Watched:'
+     A                                 11  5'Id:'
+     A                                 14  5'Name:'
+     A                                 17  5'Hours'
+     A            ALDIUSRNM     20   I  8 16
+     A                                  8 41'+-----------------+----------------
+     A                                      +'
+     A                                  9 41'!'
+     A                                  9 59'!'
+     A                                  9 75'!'
+     A                                 10 41'!'
+     A                                 10 43'Completed:'
+     A                                 13 43'Dropped:'
+     A                                 16 43'Planned:'
+     A                                 17 41'!'
+     A                                 16 41'!'
+     A                                 15 41'!'
+     A                                 14 41'!'
+     A                                 13 41'!'
+     A                                 12 41'!'
+     A                                 11 41'!'
+     A                                 10 59'!'
+     A                                 10 61'Current:'
+     A                                 13 61'Paused:'
+     A                                 16 61'Repeat:'
+     A                                 11 59'!'
+     A                                 12 59'!'
+     A                                 13 59'!'
+     A                                 14 59'!'
+     A                                 15 59'!'
+     A                                 16 59'!'
+     A                                 17 59'!'
+     A                                 10 75'!'
+     A                                 11 75'!'
+     A                                 12 75'!'
+     A                                 13 75'!'
+     A                                 14 75'!'
+     A                                 15 75'!'
+     A                                 16 75'!'
+     A                                 17 75'!'
+     A                                  8  5'Username:'
+     A                                  3 23'https://graphql.anilist.co'
+     A                                  4 27'Barrett Otte  2019'
+     A            ALDOURL       32   O  7 43
+     A            ALDOLCOMP      4   O 10 54
+     A            ALDOLDROP      4   O 13 54
+     A            ALDOLPLAN      4   O 16 54
+     A            ALDOLCURR      4   O 10 70
+     A            ALDOLPAUS      4   O 13 70
+     A            ALDOLREPT      4   O 16 70
+     A            ALDONAME      20   O 14 16
+     A            ALDOHOURS     10   O 18 16
+     A            ALDOID        10   O 11 16
+     A                                 22 11'F3=Exit'
+     A                                 22 31'F5=Refresh'
+     A                                 22 53'F12=Cancel'

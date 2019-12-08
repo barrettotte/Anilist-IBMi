@@ -1,10 +1,19 @@
 # Anilist-IBMi
 
 
-A basic display file built over the Anilist GraphQL API (Just for fun/practice).
+A basic display file and RPGLE program built over the Anilist GraphQL API (Just for fun/practice).
 
 
-This is my first IBM i side project using GNU Make, git, and VS Code(minus DSPFs)
+This is my first IBM i side project using GNU Make, git, and VS Code.
+I still used SDA for display files because its a lot less tedious.
+
+
+## Commands
+* Build - ```gmake all```
+* Clean - ```gmake clean```
+* Log - ```gmake > buildlog.txt 2>&1```
+* Copy dspf - ```gmake copy``` (still using SDA for DSPFs)
+* Pushing - ```git -c http.sslVerify=false push origin master```
 
 
 ## VS Code
@@ -32,14 +41,6 @@ git config --global user.name "First Last"
 touch ~/.profile
 echo PATH=$PATH:/QOpenSys/pkgs/bin >> ~/.profile
 ```
-
-
-## Commands
-* Using git with no SSL verification - ```git -c http.sslVerify=false clone https://github.com/barrettotte/Anilist-IBMi.git```
-* Build - ```gmake all```
-* Clean - ```gmake clean```
-* Output to text file - ```gmake > buildlog.txt 2>&1```
-* Copy dspf (display files are terrible to make by hand) - ```gmake cpydspf```
 
 
 ## References
