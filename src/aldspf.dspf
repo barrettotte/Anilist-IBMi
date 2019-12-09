@@ -1,9 +1,9 @@
-     A*%%TS  SD  20191208  191355  OTTEB       REL-V7R3M0  5770-WDS
+     A*%%TS  SD  20191209  010846  OTTEB       REL-V7R3M0  5770-WDS
      A*%%EC
      A                                      DSPSIZ(24 80 *DS3)
      A                                      INDARA
      A          R ALDR001
-     A*%%TS  SD  20191208  191355  OTTEB       REL-V7R3M0  5770-WDS
+     A*%%TS  SD  20191209  010846  OTTEB       REL-V7R3M0  5770-WDS
      A                                      CA03(03 'EXIT')
      A                                      CA05(05 'REFRESH')
      A                                      CA12(12 'CANCEL')
@@ -18,18 +18,17 @@
      A                                  4 27'Barrett Otte  2019'
      A*
      A            ALDOURL       32A  O  7 43
-     A*
-     A                                  8  5'Username:'
-     A            ALDIUSRNM     20A  I  8 16
+     A                                  8  5'Username ...'
+     A            ALDIUSRNM     18A  B  8 18CHECK(LC)
      A                                 18 41'+-----------------+----------------
      A                                      +'
-     A                                 18  4'Watched:'
      A                                 17  5'Hours'
-     A            ALDOHOURS     10A  O 18 16
-     A                                 11  5'Id:'
-     A            ALDOID        10A  O 11 16
-     A                                 14  5'Name:'
-     A            ALDONAME      20A  O 14 16
+     A                                 18  5'watched ....'
+     A            ALDOHOURS     10A  O 18 18
+     A                                 11  5'Id .........'
+     A            ALDOID        10A  O 11 18
+     A                                 14  5'Name .......'
+     A            ALDONAME      20A  O 14 18
      A                                  8 41'+-----------------+----------------
      A                                      +'
      A                                  9 41'!'
@@ -72,8 +71,7 @@
      A                                 16 75'!'
      A                                 17 75'!'
      A*
-     A            ALDOERROR     30   O 20 22
+     A            ALDOERROR     30A  O 20 22
      A                                 22 11'F3=Exit'
      A                                 22 31'F5=Refresh'
      A                                 22 53'F12=Cancel'
-     A*

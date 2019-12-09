@@ -24,6 +24,7 @@ all:	$(BIN_LIB).lib aldspf.dspf anilist.sqlrpgle
 
 copy:
 	system "CPYTOSTMF FROMMBR('/QSYS.LIB/OTTEB1.LIB/QDDSSRC.FILE/ALDSPF.MBR') TOSTMF('/home/OTTEB/Anilist-IBMi/src/aldspf.dspf') STMFOPT(*REPLACE)"
+
 # ----------------------------------------------------------------------------
 
 %.lib:
@@ -38,7 +39,7 @@ copy:
 %.sqlrpgle:
 	-system -q "CRTSRCPF FILE($(BIN_LIB)/QRPGLESRC)  RCDLEN(112)"
 	liblist -a $(LIBLIST);\
-	setccsid 1252 src/$*.sqlrpgle;\
+	setccsid 1252 src/$*.sqlrpgle;
 	system -iK "CRTSQLRPGI OBJ($(BIN_LIB)/$(notdir $*)) SRCSTMF('src/$*.sqlrpgle') RPGPPOPT(*LVL2) COMPILEOPT('$(SQLRPGCFLAGS)') DBGVIEW(*NONE) COMMIT(*NONE) TEXT('$(OBJECT_DESCRIPTION)')" ;\
 
 %.cmd:

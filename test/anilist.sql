@@ -20,13 +20,18 @@ select * from table(Systools.HttpPostClobVerbose('https://graphql.anilist.co',
 -- this will be built dynamically in SQLRPGLE --
 
 
-/* 
-    Scalar functions to make:
-    - simple graphQL query builder?
-    - search for user
-    - get user by id
-    - get anime by id
-    - search for anime
-    - get list by user id  
-*/
 
+select * from json_table(
+  Systools.HttpPostClob(
+    'https://graphql.anilist.co',
+    cast('<httpHeader><header name="Content-Type" value="application/json"/></httpHeader>' as clob),
+    cast('{"query": "{User(search:\"barrettotte\"){id name siteUrl stats{watchedTime}}}"}' as clob)
+  ),
+  '$.data.User'
+  columns(
+    id char(10) path '$.id',
+    name char(20) path '$.name',
+    url char(32) path '$.siteUrl',
+    hours char(10) path '$.stats.watchedTime'
+  )
+);

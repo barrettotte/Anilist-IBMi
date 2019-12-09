@@ -7,16 +7,16 @@ system "CPYFRMSTMF FROMSTMF('src/aldspf.dspf') TOMBR('/QSYS.lib/OTTEB1.lib/QDDSS
 CPCA081:  Stream file copied to object.
 system "CRTDSPF file(OTTEB1/aldspf) SRCFILE(OTTEB1/QDDSSRC)"
 CPI2126:  AUT parameter ignored.
-CPI2118:  Replaced object ALDSPF type *FILE was moved to QTEMP.
+CPI2121:  Replaced object ALDSPF type *FILE was moved to QRPLOBJ.
 CPC7301:  File ALDSPF created in library OTTEB1.
-  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           10/28/19 18:05:31        Page    1
+  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           12/08/19 20:47:30        Page    1
   File name . . . . . . . . . . . . . . . . . . . . . :   ALDSPF
     Library name  . . . . . . . . . . . . . . . . . . :   OTTEB1
   File attribute  . . . . . . . . . . . . . . . . . . :   Display
   Source file containing DDS  . . . . . . . . . . . . :   QDDSSRC
     Library name  . . . . . . . . . . . . . . . . . . :   OTTEB1
   Source member containing DDS  . . . . . . . . . . . :   ALDSPF
-  Source member last changed  . . . . . . . . . . . . :   12/07/19  18:05:01
+  Source member last changed  . . . . . . . . . . . . :   12/08/19  20:47:30
   Source listing options  . . . . . . . . . . . . . . :   *SOURCE    *LIST      *NOSECLVL  *NOEVENTF
   DDS generation severity level . . . . . . . . . . . :   20
   DDS flagging severity level . . . . . . . . . . . . :   00
@@ -26,51 +26,171 @@ CPC7301:  File ALDSPF created in library OTTEB1.
   Compiler  . . . . . . . . . . . . . . . . . . . . . :   IBM System i5 Data Description Processor
                                        Data Description Source
   SEQNBR  *...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8  Date
-     100       A*%%TS  SD  20191207  153401  OTTEB       REL-V7R3M0  5770-WDS
+     100       A*%%TS  SD  20191208  191355  OTTEB       REL-V7R3M0  5770-WDS
      200       A*%%EC
      300       A                                      DSPSIZ(24 80 *DS3)
      400       A                                      INDARA
      500       A          R ALDR001
-     600       A*%%TS  SD  20191205  004409  OTTEB       REL-V7R3M0  5770-WDS
+     600       A*%%TS  SD  20191208  191355  OTTEB       REL-V7R3M0  5770-WDS
      700       A                                      CA03(03 'EXIT')
      800       A                                      CA05(05 'REFRESH')
-     900       A                                  2  4DATE
-    1000       A                                      EDTCDE(Y)
-    1100       A                                  3  4TIME
-    1200       A                                  4  4USER
-    1300       A                                  4 28'https://graphql.anilist.co'
-    1400       A                                  2 34'Anilist Search'
-    1500       A                                  8 17'Enter username:'
-    1600       A            ALDFUSR       24   I  8 36
-    1700       A                                 21 21'F3=Exit'
-    1800       A                                 21 42'F5=Refresh'
-    1900       A          R ALDR002                   OVERLAY
-    2000       A*%%TS  SD  20191207  153401  OTTEB       REL-V7R3M0  5770-WDS
-    2100       A                                 13 11'Test'
+     900       A                                      CA12(12 'CANCEL')
+    1000       A*
+    1100       A                                  2  4DATE
+    1200       A                                      EDTCDE(Y)
+    1300       A                                  3  4TIME
+    1400       A                                  4  4USER
+    1500       A*
+    1600       A                                  2 29'Anilist Search'
+    1700       A                                  3 23'https://graphql.anilist.co'
+    1800       A                                  4 27'Barrett Otte  2019'
+    1900       A*
+    2000       A            ALDOURL       32A  O  7 43
+    2100       A*
+    2200       A                                  8  5'Username:'
+    2300       A            ALDIUSRNM     20A  B  8 16
+    2400       A                                 18 41'+-----------------+----------------
+    2500       A                                      +'
+    2600       A                                 18  4'Watched:'
+    2700       A                                 17  5'Hours'
+    2800       A            ALDOHOURS     10A  O 18 16
+    2900       A                                 11  5'Id:'
+    3000       A            ALDOID        10A  O 11 16
+    3100       A                                 14  5'Name:'
+    3200       A            ALDONAME      20A  O 14 16
+    3300       A                                  8 41'+-----------------+----------------
+    3400       A                                      +'
+    3500       A                                  9 41'!'
+    3600       A                                  9 59'!'
+    3700       A                                  9 75'!'
+    3800       A                                 10 41'!'
+                                                    ** WWW.PUB400.COM **
+  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           12/08/19 20:47:30        Page    2
+                                       Data Description Source
+  SEQNBR  *...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8  Date
+    3900       A                                 10 43'Completed:'
+    4000       A            ALDOLCOMP      4A  O 10 54
+    4100       A                                 13 43'Dropped:'
+    4200       A            ALDOLDROP      4A  O 13 54
+    4300       A                                 16 43'Planned:'
+    4400       A            ALDOLPLAN      4A  O 16 54
+    4500       A                                 17 41'!'
+    4600       A                                 16 41'!'
+    4700       A                                 15 41'!'
+    4800       A                                 14 41'!'
+    4900       A                                 13 41'!'
+    5000       A                                 12 41'!'
+    5100       A                                 11 41'!'
+    5200       A                                 10 59'!'
+    5300       A                                 10 61'Current:'
+    5400       A            ALDOLCURR      4A  O 10 70
+    5500       A                                 13 61'Paused:'
+    5600       A            ALDOLPAUS      4A  O 13 70
+    5700       A                                 16 61'Repeat:'
+    5800       A            ALDOLREPT      4A  O 16 70
+    5900       A                                 11 59'!'
+    6000       A                                 12 59'!'
+    6100       A                                 13 59'!'
+    6200       A                                 14 59'!'
+    6300       A                                 15 59'!'
+    6400       A                                 16 59'!'
+    6500       A                                 17 59'!'
+    6600       A                                 10 75'!'
+    6700       A                                 11 75'!'
+    6800       A                                 12 75'!'
+    6900       A                                 13 75'!'
+    7000       A                                 14 75'!'
+    7100       A                                 15 75'!'
+    7200       A                                 16 75'!'
+    7300       A                                 17 75'!'
+    7400       A*
+    7500       A            ALDOERROR     30   O 20 22
+    7600       A                                 22 11'F3=Exit'
+    7700       A                                 22 31'F5=Refresh'
+    7800       A                                 22 53'F12=Cancel'
+    7900       A*
                           * * * * *   E N D   O F   S O U R C E   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           10/28/19 18:05:31        Page    2
+  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           12/08/19 20:47:30        Page    3
                                            Expanded Source
                                                                                            Field       Buffer position
   SEQNBR  *...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8 length        Out     In
      300                                              DSPSIZ(24 80 *DS3) INDARA
                 * Indicator Area:
-                *  *IN03        *IN05
-     500                  R ALDR001                   CA03(03 'EXIT') CA05(05 'REFRESH')
-     900                                          2  4DATE EDTCDE(Y)                           8
-    1100                                          3  4TIME                                     8
-    1200                                          4  4USER                                    10
-    1300                                          4 28'https://graphql.anilist.co'            26
-    1400                                          2 34'Anilist Search'                        14
-    1500                                          8 17'Enter username:'                       15
-    1600                    ALDFUSR       24A  I  8 36                                        24                    1
-    1700                                         21 21'F3=Exit'                                7
-    1800                                         21 42'F5=Refresh'                            10
-    1900                  R ALDR002                   OVERLAY
-    2100                                         13 11'Test'                                   4
+                *  *IN03        *IN05        *IN12
+     500                  R ALDR001                   CA03(03 'EXIT') CA05(05 'REFRESH') +
+     900                                              CA12(12 'CANCEL')
+    1100                                          2  4DATE EDTCDE(Y)                           8
+    1300                                          3  4TIME                                     8
+    1400                                          4  4USER                                    10
+    1600                                          2 29'Anilist Search'                        14
+    1700                                          3 23'https://graphql.anilist.co'            26
+    1800                                          4 27'Barrett Otte  2019'                    18
+    2000                    ALDOURL       32A  O  7 43                                        32            1
+    2200                                          8  5'Username:'                              9
+    2300                    ALDIUSRNM     20A  B  8 16                                        20           33       1
+    2400                                         18 41'+-----------------+----------------    35
+    2400                                              +'
+    2600                                         18  4'Watched:'                               8
+    2700                                         17  5'Hours'                                  5
+    2800                    ALDOHOURS     10A  O 18 16                                        10           53
+    2900                                         11  5'Id:'                                    3
+    3000                    ALDOID        10A  O 11 16                                        10           63
+    3100                                         14  5'Name:'                                  5
+    3200                    ALDONAME      20A  O 14 16                                        20           73
+    3300                                          8 41'+-----------------+----------------    35
+    3300                                              +'
+    3500                                          9 41'!'                                      1
+    3600                                          9 59'!'                                      1
+    3700                                          9 75'!'                                      1
+    3800                                         10 41'!'                                      1
+    3900                                         10 43'Completed:'                            10
+    4000                    ALDOLCOMP      4A  O 10 54                                         4           93
+    4100                                         13 43'Dropped:'                               8
+    4200                    ALDOLDROP      4A  O 13 54                                         4           97
+    4300                                         16 43'Planned:'                               8
+    4400                    ALDOLPLAN      4A  O 16 54                                         4          101
+    4500                                         17 41'!'                                      1
+    4600                                         16 41'!'                                      1
+    4700                                         15 41'!'                                      1
+    4800                                         14 41'!'                                      1
+    4900                                         13 41'!'                                      1
+    5000                                         12 41'!'                                      1
+    5100                                         11 41'!'                                      1
+    5200                                         10 59'!'                                      1
+    5300                                         10 61'Current:'                               8
+    5400                    ALDOLCURR      4A  O 10 70                                         4          105
+    5500                                         13 61'Paused:'                                7
+    5600                    ALDOLPAUS      4A  O 13 70                                         4          109
+    5700                                         16 61'Repeat:'                                7
+    5800                    ALDOLREPT      4A  O 16 70                                         4          113
+    5900                                         11 59'!'                                      1
+    6000                                         12 59'!'                                      1
+    6100                                         13 59'!'                                      1
+    6200                                         14 59'!'                                      1
+                                                    ** WWW.PUB400.COM **
+  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           12/08/19 20:47:30        Page    4
+                                           Expanded Source
+                                                                                           Field       Buffer position
+  SEQNBR  *...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8 length        Out     In
+    6300                                         15 59'!'                                      1
+    6400                                         16 59'!'                                      1
+    6500                                         17 59'!'                                      1
+    6600                                         10 75'!'                                      1
+    6700                                         11 75'!'                                      1
+    6800                                         12 75'!'                                      1
+    6900                                         13 75'!'                                      1
+    7000                                         14 75'!'                                      1
+    7100                                         15 75'!'                                      1
+    7200                                         16 75'!'                                      1
+    7300                                         17 75'!'                                      1
+    7500                    ALDOERROR     30A  O 20 22                                        30          117
+    7600                                         22 11'F3=Exit'                                7
+    7700                                         22 31'F5=Refresh'                            10
+    7800                                         22 53'F12=Cancel'                            10
                   * * * * *   E N D   O F   E X P A N D E D   S O U R C E   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           10/28/19 18:05:31        Page    3
+  5770SS1 V7R3M0  160422                  Data Description               OTTEB1/ALDSPF           12/08/19 20:47:30        Page    5
                                            Message Summary
      Total          Informational          Warning        Error       Severe
                         (0-9)              (10-19)       (20-29)      (30-99)
@@ -91,10 +211,9 @@ RNS9307:  Diagnostic check of source is complete. Highest severity is 00.
 CPC0904:  Data area RETURNCODE created in library QTEMP.
 CPC7301:  File QSQLTEMP1 created in library QTEMP.
 CPC7305:  Member ANILIST added to file QSQLTEMP1 in QTEMP.
-CPI2119:  AUT and USRPRF parameter values were ignored.
-CPI2118:  Replaced object ANILIST type *PGM was moved to QTEMP.
-RNS9304:  Program ANILIST placed in library OTTEB1. 00 highest severity. Created on 12/07/19 at 18:05:33.
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      1
+RNS9308:  Compilation stopped. Severity 20 errors found in program.
+RNS9310:  Compilation failed. Program ANILIST not created in library OTTEB1.
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:32        Page      1
    Command  . . . . . . . . . . . . :   CRTBNDRPG
      Issued by  . . . . . . . . . . :     OTTEB
    Program  . . . . . . . . . . . . :   ANILIST
@@ -103,7 +222,7 @@ RNS9304:  Program ANILIST placed in library OTTEB1. 00 highest severity. Created
    Source stream file   . . . . . . :   src/anilist.sqlrpgle
      CCSID  . . . . . . . . . . . . :     500
    Text 'description' . . . . . . . :
-   Last Change  . . . . . . . . . . :   12/07/19  17:11:56
+   Last Change  . . . . . . . . . . :   12/08/19  20:46:54
    Generation severity level  . . . :   10
    Default activation group . . . . :   *YES
    Compiler options . . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
@@ -135,71 +254,153 @@ RNS9304:  Program ANILIST placed in library OTTEB1. 00 highest severity. Created
      Library  . . . . . . . . . . . :     QTEMP
    Output source member . . . . . . :   ANILIST
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      2
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:32        Page      2
  Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
  Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
                            S o u r c e   L i s t i n g
       1 **free                                                                                                               000001
       2                                                                                                                      000002
       3 ctl-opt main(main);                                                                                                  000003
-      4 ctl-opt option(*srcstmt :*noDebugIO: *nounref) dftActGrp(*no);                                                       000004
+      4 ctl-opt option(*srcstmt:*noDebugIO:*nounref) dftActGrp(*no);                                                         000004
       5 ctl-opt datfmt(*iso) timfmt(*iso);                                                                                   000005
       6                                                                                                                      000006
-      7 dcl-f ALDSPF workstn indDs(dspf) usropn;                                                                             000007
-      8                                                                                                                      000008
-      9 dcl-ds dspf qualified;                                                                                               000009
-     10   exit    ind pos(3);                                                                                                000010
-     11   refresh ind pos(5);                                                                                                000011
-     12 end-ds;                                                                                                              000012
-     13                                                                                                                      000013
-     14 dcl-pr main extPgm('ANILIST') end-pr;                                                                                000014
+      7                                                                                                                      000007
+      8 dcl-f ALDSPF workStn(*ext) indDs(dspf) usropn;                                                                       000008
+      9                                                                                                                      000009
+     10 dcl-ds dspf qualified;                                                                                               000010
+     11   exit     ind  pos(3);                                                                                              000011
+     12   refresh  ind  pos(5);                                                                                              000012
+     13   cancel   ind  pos(12);                                                                                             000013
+     14 end-ds;                                                                                                              000014
      15                                                                                                                      000015
-     16                                                                                                                      000016
-     17 dcl-proc main;                                                                                                       000017
-     18   open ALDSPF;                                                                                                       000018
-     19                                                                                                                      000019
-     20   doW not dspf.exit;                                                                                                 000020
-     21     exfmt ALDR001;                                                                                                   000021
-     22   enddo;                                                                                                             000022
-     23                                                                                                                      000023
-     24   resetDspf();                                                                                                       000024
-     25                                                                                                                      000025
-     26   on-exit;                                                                                                           000026
-     27     close *ALL;                                                                                                      000027
-     28                                                                                                                      000028
-     29 end-proc;                                                                                                            000029
-     30                                                                                                                      000030
-     31                                                                                                                      000031
-     32 dcl-proc resetDspf;                                                                                                  000032
-     33   // For some reason, I need to reset indicators                                                                     000033
-     34   //   even after closing a DSPF successfully.                                                                       000034
-     35   //   I should look more into this at some point.                                                                   000035
-     36   dspf.exit = *OFF;                                                                                                  000036
-     37 end-proc;                                                                                                            000037
-     38                                                                                                                      000038
-     39                                                                                                                      000039
-     40 dcl-proc toUpper;                                                                                                    000040
-     41   dcl-pi *n char(80);                                                                                                000041
-     42     s char(80) value;                                                                                                000042
-     43   end-pi;                                                                                                            000043
-     44                                                                                                                      000044
-     45   exec SQL set :s = upper(:s);                                                                                       000045
-     46   return s;                                                                                                          000046
-     47 end-proc;                                                                                                            000047
+     16 dcl-pr main extPgm('ANILIST') end-pr;                                                                                000016
+     17                                                                                                                      000017
+     18                                                                                                                      000018
+     19 dcl-proc main;                                                                                                       000019
+     20                                                                                                                      000020
+     21   monitor;                                                                                                           000021
+     22     open ALDSPF;                                                                                                     000022
+     23   on-error *file;                                                                                                    000023
+     24     dsply ('Could not open display file ALDSPF');                                                                    000024
+     25     return;                                                                                                          000025
+     26   endmon;                                                                                                            000026
+     27                                                                                                                      000027
+     28   dspfLoop ();                                                                                                       000028
+     29                                                                                                                      000029
+     30   on-exit;                                                                                                           000030
+     31     resetDspf ();                                                                                                    000031
+     32     close *ALL;                                                                                                      000032
+     33                                                                                                                      000033
+     34 end-proc;                                                                                                            000034
+     35                                                                                                                      000035
+     36                                                                                                                      000036
+     37 dcl-proc dspfLoop;                                                                                                   000037
+     38   monitor;                                                                                                           000038
+     39     doU (dspf.exit);                                                                                                 000039
+     40       exfmt ALDR001;                                                                                                 000040
+     41                                                                                                                      000041
+     42       if (dspf.cancel or dspf.exit);                                                                                 000042
+     43         leave;                                                                                                       000043
+     44       elseif (dspf.refresh);                                                                                         000044
+     45         clear ALDR001;                                                                                               000045
+     46       elseif (ALDIUSRNM <> *BLANK);                                                                                  000046
+     47         queryAnilist ();                                                                                             000047
+     48         write ALDR001;                                                                                               000048
+     49       endif;                                                                                                         000049
+     50                                                                                                                      000050
+     51     enddo;                                                                                                           000051
+     52   on-error;                                                                                                          000052
+     53     ALDOERROR = 'Error occurred in dspfLoop()';                                                                      000053
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:32        Page      3
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+     54     write ALDR001;                                                                                                   000054
+     55   endmon;                                                                                                            000055
+     56 end-proc;                                                                                                            000056
+     57                                                                                                                      000057
+     58                                                                                                                      000058
+     59 dcl-proc queryAnilist;                                                                                               000059
+     60   // todo take user as param, return resp DS                                                                         000060
+     61                                                                                                                      000061
+     62   dcl-ds user qualified;                                                                                             000062
+     63     id     varchar(10);                                                                                              000063
+     64     name   varchar(20);                                                                                              000064
+     65     url    varchar(32);                                                                                              000065
+     66     hours  varchar(10);                                                                                              000066
+     67   end-ds;                                                                                                            000067
+     68                                                                                                                      000068
+     69   dcl-ds listCounts qualified;                                                                                       000069
+     70     completed  varchar(4);                                                                                           000070
+     71     dropped    varchar(4);                                                                                           000071
+     72     planned    varchar(4);                                                                                           000072
+     73     current    varchar(4);                                                                                           000073
+     74     paused     varchar(4);                                                                                           000074
+     75     repeat     varchar(4);                                                                                           000075
+     76   end-ds;                                                                                                            000076
+     77                                                                                                                      000077
+     78   dcl-s alApiUrl  varchar(128);                                                                                      000078
+     79   dcl-s reqHeader varchar(128);                                                                                      000079
+     80   dcl-s reqBody   varchar(256);                                                                                      000080
+     81                                                                                                                      000081
+     82   alApiUrl = 'https://graphql.anilist.co';                                                                           000082
+     83   reqHeader = '<httpHeader><header name="Content-Type" value="application/json"/></httpHeader>';                     000083
+     84   reqBody = 'ä"query": "äUser(search:Ö"' + ALDIUSRNM + 'Ö")äid name siteUrl statsäwatchedTimeüüü"ü'                  000084
+     85                                                                                                                      000085
+     86   exec SQL                                                                                                           000086
+     87     select *                                                                                                         000087
+     88     into :user                                                                                                       000088
+     89     from json_table(                                                                                                 000089
+     90       Systools.HttpPostClob(:alApiUrl, cast(:reqHeader as clob), cast(:reqBody as clob)),                            000090
+     91       '$'                                                                                                            000091
+     92       columns(                                                                                                       000092
+     93         id varchar(10) path '$.data.User.id',                                                                        000093
+     94         name varchar(20) path '$.data.User.name',                                                                    000094
+     95         url varchar(20) path '$.data.User.siteUrl',                                                                  000095
+     96         hours varchar(10) path '$.data.User.stats.watchedTime'                                                       000096
+     97       )                                                                                                              000097
+     98     );                                                                                                               000098
+     99                                                                                                                      000099
+    100   ALDONAME = user.name;                                                                                              000100
+    101 end-proc;                                                                                                            000101
+    102                                                                                                                      000102
+    103                                                                                                                      000103
+    104 dcl-proc resetDspf;                                                                                                  000104
+    105   // For some reason, I need to reset indicators                                                                     000105
+    106   //   even after closing a DSPF successfully.                                                                       000106
+    107   //   I should look more into this at some point.                                                                   000107
+    108   dspf.exit = *OFF;                                                                                                  000108
+    109   dspf.cancel = *OFF;                                                                                                000109
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:32        Page      4
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+    110 end-proc;                                                                                                            000110
+    111                                                                                                                      000111
+    112                                                                                                                      000112
+    113 dcl-proc toUpper;                                                                                                    000113
+    114   dcl-pi *n char(80);                                                                                                000114
+    115     s char(80) value;                                                                                                000115
+    116   end-pi;                                                                                                            000116
+    117                                                                                                                      000117
+    118   exec SQL                                                                                                           000118
+    119     set :s = upper(:s);                                                                                              000119
+    120   return s;                                                                                                          000120
+    121 end-proc;                                                                                                            000121
         * * * * *   E N D   O F   S O U R C E   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      3
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:32        Page      5
  Line   <---------------------- Data Records -------------------------------------------------------------->      Change Src Seq
  Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10      Date   Id  Number
                         C o m p i l e   T i m e   D a t a
      * * * * *   E N D   O F   C O M P I L E   T I M E   D A T A   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      4
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:32        Page      6
                            M e s s a g e   S u m m a r y
   Msg id  Sv Number Message text
         * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      5
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:32        Page      7
                              F i n a l   S u m m a r y
    Message Totals:
      Information  (00) . . . . . . . :        0
@@ -209,15 +410,15 @@ RNS9304:  Program ANILIST placed in library OTTEB1. 00 highest severity. Created
      ---------------------------------  -------
      Total . . . . . . . . . . . . . :        0
    Source Totals:
-     Records . . . . . . . . . . . . :       47
-     Specifications  . . . . . . . . :       22
+     Records . . . . . . . . . . . . :      121
+     Specifications  . . . . . . . . :       78
      Data records  . . . . . . . . . :        0
-     Comments  . . . . . . . . . . . :       18
+     Comments  . . . . . . . . . . . :       32
           * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
  Diagnostic check of source is complete. Highest severity is 00.
            * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      1
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page      1
    Command  . . . . . . . . . . . . :   CRTBNDRPG
      Issued by  . . . . . . . . . . :     OTTEB
    Program  . . . . . . . . . . . . :   ANILIST
@@ -226,7 +427,7 @@ RNS9304:  Program ANILIST placed in library OTTEB1. 00 highest severity. Created
    Source stream file   . . . . . . :   /QSYS.LIB/QTEMP.LIB/QSQLTEMP1.FILE/ANILIST.MBR
      CCSID  . . . . . . . . . . . . :     500
    Text 'description' . . . . . . . :
-   Last Change  . . . . . . . . . . :   12/07/19  18:05:32
+   Last Change  . . . . . . . . . . :   12/08/19  20:47:33
    Generation severity level  . . . :   10
    Default activation group . . . . :   *YES
    Compiler options . . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
@@ -255,16 +456,17 @@ RNS9304:  Program ANILIST placed in library OTTEB1. 00 highest severity. Created
    Include directory  . . . . . . . :   ./..
    Preprocessor options . . . . . . :   *NONE
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      2
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page      2
  Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
  Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
                            S o u r c e   L i s t i n g
       1 **free                                                                                                               000001
       2                                                                                                                      000002
       3 ctl-opt main(main);                                                                                                  000003
-      4 ctl-opt option(*srcstmt :*noDebugIO: *nounref) dftActGrp(*no);                                                       000004
+      4 ctl-opt option(*srcstmt:*noDebugIO:*nounref) dftActGrp(*no);                                                         000004
  000005 ctl-opt datfmt(*iso) timfmt(*iso);                                                                                   000005
  000006                                                                                                                      000006
+ 000007                                                                                                                      000007
          *--------------------------------------------------------------------*
          * Compiler Options in Effect:                                        *
          *--------------------------------------------------------------------*
@@ -296,277 +498,483 @@ RNS9304:  Program ANILIST placed in library OTTEB1. 00 highest severity. Created
          *  Profiling data . . . . . . . . . :   *NOCOL                       *
          *  Generate program interface . . . :   *NO                          *
          *--------------------------------------------------------------------*
- 000007 dcl-f ALDSPF workstn indDs(dspf) usropn;                                                                             000007
+ 000008 dcl-f ALDSPF workStn(*ext) indDs(dspf) usropn;                                                                       000008
          *--------------------------------------------------------------------------------------------*
          *                               RPG name         External name                               *
          * File name. . . . . . . . . :  ALDSPF           OTTEB1/ALDSPF                               *
          * Record format(s) . . . . . :  ALDR001          ALDR001                                     *
-         *                               ALDR002          ALDR002                                     *
          *--------------------------------------------------------------------------------------------*
- 000008                                                                                                                      000008
- 000009 dcl-ds dspf qualified;                                                                                               000009
- 000010   exit    ind pos(3);                                                                                                000010
- 000011   refresh ind pos(5);                                                                                                000011
+ 000009                                                                                                                      000009
+ 000010 dcl-ds dspf qualified;                                                                                               000010
+ 000011   exit     ind  pos(3);                                                                                              000011
+ 000012   refresh  ind  pos(5);                                                                                              000012
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      3
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page      3
  Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
  Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
- 000012 end-ds;                                                                                                              000012
- 000013                                                                                                                      000013
- 000014 dcl-pr main extPgm('ANILIST') end-pr;                                                                                000014
+ 000013   cancel   ind  pos(12);                                                                                             000013
+ 000014 end-ds;                                                                                                              000014
  000015                                                                                                                      000015
- 000016                                                                                                                      000016
- 000017        /SET CCSID(*CHAR:*JOBRUNMIX)                                                                                  000017
- 000018        // SQL COMMUNICATION AREA                                                //SQL                                000018
- 000019        DCL-DS SQLCA;                                                            //SQL                                000019
- 000020          SQLCAID CHAR(8) INZ(X'0000000000000000');                              //SQL                                000020
- 000021           SQLAID CHAR(8) OVERLAY(SQLCAID);                                      //SQL                                000021
- 000022          SQLCABC INT(10);                                                       //SQL                                000022
- 000023           SQLABC BINDEC(9) OVERLAY(SQLCABC);                                    //SQL                                000023
- 000024          SQLCODE INT(10);                                                       //SQL                                000024
- 000025           SQLCOD BINDEC(9) OVERLAY(SQLCODE);                                    //SQL                                000025
- 000026          SQLERRML INT(5);                                                       //SQL                                000026
- 000027           SQLERL BINDEC(4) OVERLAY(SQLERRML);                                   //SQL                                000027
- 000028          SQLERRMC CHAR(70);                                                     //SQL                                000028
- 000029           SQLERM CHAR(70) OVERLAY(SQLERRMC);                                    //SQL                                000029
- 000030          SQLERRP CHAR(8);                                                       //SQL                                000030
- 000031           SQLERP CHAR(8) OVERLAY(SQLERRP);                                      //SQL                                000031
- 000032          SQLERR CHAR(24);                                                       //SQL                                000032
- 000033           SQLER1 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000033
- 000034           SQLER2 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000034
- 000035           SQLER3 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000035
- 000036           SQLER4 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000036
- 000037           SQLER5 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000037
- 000038           SQLER6 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000038
- 000039           SQLERRD INT(10) DIM(6) OVERLAY(SQLERR);                               //SQL                                000039
- 000040          SQLWRN CHAR(11);                                                       //SQL                                000040
- 000041           SQLWN0 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000041
- 000042           SQLWN1 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000042
- 000043           SQLWN2 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000043
- 000044           SQLWN3 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000044
- 000045           SQLWN4 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000045
- 000046           SQLWN5 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000046
- 000047           SQLWN6 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000047
- 000048           SQLWN7 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000048
- 000049           SQLWN8 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000049
- 000050           SQLWN9 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000050
- 000051           SQLWNA CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000051
- 000052           SQLWARN CHAR(1) DIM(11) OVERLAY(SQLWRN);                              //SQL                                000052
- 000053          SQLSTATE CHAR(5);                                                      //SQL                                000053
- 000054           SQLSTT CHAR(5) OVERLAY(SQLSTATE);                                     //SQL                                000054
- 000055        END-DS SQLCA;                                                            //SQL                                000055
- 000056        DCL-PR SQLROUTE_CALL EXTPGM(SQLROUTE);                                   //SQL                                000056
- 000057          CA LIKEDS(SQLCA);                                                      //SQL                                000057
- 000058          *N BINDEC(4) OPTIONS(*NOPASS);                                         //SQL                                000058
- 000059          *N CHAR(1) OPTIONS(*NOPASS);                                           //SQL                                000059
- 000060        END-PR SQLROUTE_CALL;                                                    //SQL                                000060
- 000061        DCL-PR SQLOPEN_CALL EXTPGM(SQLOPEN);                                     //SQL                                000061
- 000062          CA LIKEDS(SQLCA);                                                      //SQL                                000062
- 000063          *N BINDEC(4);                                                          //SQL                                000063
- 000064        END-PR SQLOPEN_CALL;                                                     //SQL                                000064
- 000065        DCL-PR SQLCLSE_CALL EXTPGM(SQLCLSE);                                     //SQL                                000065
- 000066          CA LIKEDS(SQLCA);                                                      //SQL                                000066
- 000067          *N BINDEC(4);                                                          //SQL                                000067
+ 000016 dcl-pr main extPgm('ANILIST') end-pr;                                                                                000016
+ 000017                                                                                                                      000017
+ 000018                                                                                                                      000018
+ 000019        /SET CCSID(*CHAR:*JOBRUNMIX)                                                                                  000019
+ 000020        // SQL COMMUNICATION AREA                                                //SQL                                000020
+ 000021        DCL-DS SQLCA;                                                            //SQL                                000021
+ 000022          SQLCAID CHAR(8) INZ(X'0000000000000000');                              //SQL                                000022
+ 000023           SQLAID CHAR(8) OVERLAY(SQLCAID);                                      //SQL                                000023
+ 000024          SQLCABC INT(10);                                                       //SQL                                000024
+ 000025           SQLABC BINDEC(9) OVERLAY(SQLCABC);                                    //SQL                                000025
+ 000026          SQLCODE INT(10);                                                       //SQL                                000026
+ 000027           SQLCOD BINDEC(9) OVERLAY(SQLCODE);                                    //SQL                                000027
+ 000028          SQLERRML INT(5);                                                       //SQL                                000028
+ 000029           SQLERL BINDEC(4) OVERLAY(SQLERRML);                                   //SQL                                000029
+ 000030          SQLERRMC CHAR(70);                                                     //SQL                                000030
+ 000031           SQLERM CHAR(70) OVERLAY(SQLERRMC);                                    //SQL                                000031
+ 000032          SQLERRP CHAR(8);                                                       //SQL                                000032
+ 000033           SQLERP CHAR(8) OVERLAY(SQLERRP);                                      //SQL                                000033
+ 000034          SQLERR CHAR(24);                                                       //SQL                                000034
+ 000035           SQLER1 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000035
+ 000036           SQLER2 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000036
+ 000037           SQLER3 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000037
+ 000038           SQLER4 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000038
+ 000039           SQLER5 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000039
+ 000040           SQLER6 BINDEC(9) OVERLAY(SQLERR:*NEXT);                               //SQL                                000040
+ 000041           SQLERRD INT(10) DIM(6) OVERLAY(SQLERR);                               //SQL                                000041
+ 000042          SQLWRN CHAR(11);                                                       //SQL                                000042
+ 000043           SQLWN0 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000043
+ 000044           SQLWN1 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000044
+ 000045           SQLWN2 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000045
+ 000046           SQLWN3 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000046
+ 000047           SQLWN4 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000047
+ 000048           SQLWN5 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000048
+ 000049           SQLWN6 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000049
+ 000050           SQLWN7 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000050
+ 000051           SQLWN8 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000051
+ 000052           SQLWN9 CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000052
+ 000053           SQLWNA CHAR(1) OVERLAY(SQLWRN:*NEXT);                                 //SQL                                000053
+ 000054           SQLWARN CHAR(1) DIM(11) OVERLAY(SQLWRN);                              //SQL                                000054
+ 000055          SQLSTATE CHAR(5);                                                      //SQL                                000055
+ 000056           SQLSTT CHAR(5) OVERLAY(SQLSTATE);                                     //SQL                                000056
+ 000057        END-DS SQLCA;                                                            //SQL                                000057
+ 000058        DCL-PR SQLROUTE_CALL EXTPGM(SQLROUTE);                                   //SQL                                000058
+ 000059          CA LIKEDS(SQLCA);                                                      //SQL                                000059
+ 000060          *N BINDEC(4) OPTIONS(*NOPASS);                                         //SQL                                000060
+ 000061          *N CHAR(1) OPTIONS(*NOPASS);                                           //SQL                                000061
+ 000062        END-PR SQLROUTE_CALL;                                                    //SQL                                000062
+ 000063        DCL-PR SQLOPEN_CALL EXTPGM(SQLOPEN);                                     //SQL                                000063
+ 000064          CA LIKEDS(SQLCA);                                                      //SQL                                000064
+ 000065          *N BINDEC(4);                                                          //SQL                                000065
+ 000066        END-PR SQLOPEN_CALL;                                                     //SQL                                000066
+ 000067        DCL-PR SQLCLSE_CALL EXTPGM(SQLCLSE);                                     //SQL                                000067
+ 000068          CA LIKEDS(SQLCA);                                                      //SQL                                000068
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      4
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page      4
  Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
  Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
- 000068        END-PR SQLCLSE_CALL;                                                     //SQL                                000068
- 000069        DCL-PR SQLCMIT_CALL EXTPGM(SQLCMIT);                                     //SQL                                000069
- 000070          CA LIKEDS(SQLCA);                                                      //SQL                                000070
- 000071          *N BINDEC(4);                                                          //SQL                                000071
- 000072        END-PR SQLCMIT_CALL;                                                     //SQL                                000072
- 000073        /RESTORE CCSID(*CHAR)                                                                                         000073
- 000074        DCL-C SQLROUTE CONST('QSYS/QSQROUTE');                                   //SQL                                000074
- 000075        DCL-C SQLOPEN CONST('QSYS/QSQROUTE');                                    //SQL                                000075
- 000076        DCL-C SQLCLSE CONST('QSYS/QSQLCLSE');                                    //SQL                                000076
- 000077        DCL-C SQLCMIT CONST('QSYS/QSQLCMIT');                                    //SQL                                000077
- 000078        DCL-C SQFRD CONST(2);                                                    //SQL                                000078
- 000079        DCL-C SQFCRT CONST(8);                                                   //SQL                                000079
- 000080        DCL-C SQFOVR CONST(16);                                                  //SQL                                000080
- 000081        DCL-C SQFAPP CONST(32);                                                  //SQL                                000081
+ 000069          *N BINDEC(4);                                                          //SQL                                000069
+ 000070        END-PR SQLCLSE_CALL;                                                     //SQL                                000070
+ 000071        DCL-PR SQLCMIT_CALL EXTPGM(SQLCMIT);                                     //SQL                                000071
+ 000072          CA LIKEDS(SQLCA);                                                      //SQL                                000072
+ 000073          *N BINDEC(4);                                                          //SQL                                000073
+ 000074        END-PR SQLCMIT_CALL;                                                     //SQL                                000074
+ 000075        /RESTORE CCSID(*CHAR)                                                                                         000075
+ 000076        DCL-C SQLROUTE CONST('QSYS/QSQROUTE');                                   //SQL                                000076
+ 000077        DCL-C SQLOPEN CONST('QSYS/QSQROUTE');                                    //SQL                                000077
+ 000078        DCL-C SQLCLSE CONST('QSYS/QSQLCLSE');                                    //SQL                                000078
+ 000079        DCL-C SQLCMIT CONST('QSYS/QSQLCMIT');                                    //SQL                                000079
+ 000080        DCL-C SQFRD CONST(2);                                                    //SQL                                000080
+ 000081        DCL-C SQFCRT CONST(8);                                                   //SQL                                000081
+ 000082        DCL-C SQFOVR CONST(16);                                                  //SQL                                000082
+ 000083        DCL-C SQFAPP CONST(32);                                                  //SQL                                000083
  000001=IALDR001                                                                                                            1000001
          *--------------------------------------------------------------------------------------------*                     1
          * RPG record format  . . . . :  ALDR001                                                      *                     1
          * External format  . . . . . :  ALDR001 : OTTEB1/ALDSPF                                      *                     1
          *--------------------------------------------------------------------------------------------*                     1
- 000002=I                             A    1   24  ALDFUSR                                                                  1000002
- 000001=IALDR002                                                                                                            2000001
+ 000002=I                             A    1   20  ALDIUSRNM                                                                1000002
+ 000001=OALDR001                                                                                                            2000001
          *--------------------------------------------------------------------------------------------*                     2
-         * RPG record format  . . . . :  ALDR002                                                      *                     2
-         * External format  . . . . . :  ALDR002 : OTTEB1/ALDSPF                                      *                     2
+         * RPG record format  . . . . :  ALDR001                                                      *                     2
+         * External format  . . . . . :  ALDR001 : OTTEB1/ALDSPF                                      *                     2
          *--------------------------------------------------------------------------------------------*                     2
- 000001=OALDR001                                                                                                            3000001
-         *--------------------------------------------------------------------------------------------*                     3
-         * RPG record format  . . . . :  ALDR001                                                      *                     3
-         * External format  . . . . . :  ALDR001 : OTTEB1/ALDSPF                                      *                     3
-         *--------------------------------------------------------------------------------------------*                     3
- 000001=OALDR002                                                                                                            4000001
-         *--------------------------------------------------------------------------------------------*                     4
-         * RPG record format  . . . . :  ALDR002                                                      *                     4
-         * External format  . . . . . :  ALDR002 : OTTEB1/ALDSPF                                      *                     4
-         *--------------------------------------------------------------------------------------------*                     4
- 000082 dcl-proc main;                                                                                                       000082
- 000083   open ALDSPF;                                                                                                       000083
- 000084                                                                                                                      000084
- 000085   doW not dspf.exit;                                                                                 B01             000085
- 000086     exfmt ALDR001;                                                                                    01             000086
- 000087   enddo;                                                                                             E01             000087
- 000088                                                                                                                      000088
- 000089   resetDspf();                                                                                                       000089
- 000090                                                                                                                      000090
- 000091   on-exit;                                                                                                           000091
- 000092     close *ALL;                                                                                                      000092
- 000093                                                                                                                      000093
- 000094 end-proc;                                                                                                            000094
- 000095                                                                                                                      000095
- 000096                                                                                                                      000096
+ 000002=O                       ALDOURL             32A CHAR       32                                                       2000002
+ 000003=O                       ALDIUSRNM           52A CHAR       20                                                       2000003
+ 000004=O                       ALDOHOURS           62A CHAR       10                                                       2000004
+ 000005=O                       ALDOID              72A CHAR       10                                                       2000005
+ 000006=O                       ALDONAME            92A CHAR       20                                                       2000006
+ 000007=O                       ALDOLCOMP           96A CHAR        4                                                       2000007
+ 000008=O                       ALDOLDROP          100A CHAR        4                                                       2000008
+ 000009=O                       ALDOLPLAN          104A CHAR        4                                                       2000009
+ 000010=O                       ALDOLCURR          108A CHAR        4                                                       2000010
+ 000011=O                       ALDOLPAUS          112A CHAR        4                                                       2000011
+ 000012=O                       ALDOLREPT          116A CHAR        4                                                       2000012
+ 000013=O                       ALDOERROR          146A CHAR       30                                                       2000013
+ 000084 dcl-proc main;                                                                                                       000084
+ 000085                                                                                                                      000085
+ 000086   monitor;                                                                                           B01             000086
+ 000087     open ALDSPF;                                                                                      01             000087
+ 000088   on-error *file;                                                                                    X01             000088
+ 000089     dsply ('Could not open display file ALDSPF');                                                     01             000089
+ 000090     return;                                                                                           01             000090
+ 000091   endmon;                                                                                            E01             000091
+ 000092                                                                                                                      000092
+ 000093   dspfLoop ();                                                                                                       000093
+ 000094                                                                                                                      000094
+ 000095   on-exit;                                                                                                           000095
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      5
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page      5
  Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
  Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
- 000097 dcl-proc resetDspf;                                                                                                  000097
- 000098   // For some reason, I need to reset indicators                                                                     000098
- 000099   //   even after closing a DSPF successfully.                                                                       000099
- 000100   //   I should look more into this at some point.                                                                   000100
- 000101   dspf.exit = *OFF;                                                                                                  000101
- 000102 end-proc;                                                                                                            000102
- 000103                                                                                                                      000103
- 000104                                                                                                                      000104
- 000105 dcl-proc toUpper;                                                                                                    000105
- 000106   dcl-pi *n char(80);                                                                                                000106
- 000107     s char(80) value;                                                                                                000107
- 000108   end-pi;                                                                                                            000108
- 000109                                                                                                                      000109
- 000110 **END-FREE                                                                                                           000110
+ 000096     resetDspf ();                                                                                                    000096
+ 000097     close *ALL;                                                                                                      000097
+ 000098                                                                                                                      000098
+ 000099 end-proc;                                                                                                            000099
+ 000100                                                                                                                      000100
+ 000101                                                                                                                      000101
+ 000102 dcl-proc dspfLoop;                                                                                                   000102
+ 000103   monitor;                                                                                           B01             000103
+ 000104     doU (dspf.exit);                                                                                 B02             000104
+ 000105       exfmt ALDR001;                                                                                  02             000105
+ 000106                                                                                                                      000106
+ 000107       if (dspf.cancel or dspf.exit);                                                                 B03             000107
+ 000108         leave;                                                                                        03             000108
+ 000109       elseif (dspf.refresh);                                                                         X03             000109
+ 000110         clear ALDR001;                                                                                03             000110
+ 000111       elseif (ALDIUSRNM <> *BLANK);                                                                  X03             000111
+ 000112         queryAnilist ();                                                                              03             000112
+ 000113         write ALDR001;                                                                                03             000113
+ 000114       endif;                                                                                         E03             000114
+ 000115                                                                                                                      000115
+ 000116     enddo;                                                                                           E02             000116
+ 000117   on-error;                                                                                          X01             000117
+ 000118     ALDOERROR = 'Error occurred in dspfLoop()';                                                       01             000118
+ 000119     write ALDR001;                                                                                    01             000119
+ 000120   endmon;                                                                                            E01             000120
+ 000121 end-proc;                                                                                                            000121
+ 000122                                                                                                                      000122
+ 000123                                                                                                                      000123
+ 000124 dcl-proc queryAnilist;                                                                                               000124
+ 000125   // todo take user as param, return resp DS                                                                         000125
+ 000126                                                                                                                      000126
+ 000127   dcl-ds user qualified;                                                                                             000127
+ 000128     id     varchar(10);                                                                                              000128
+ 000129     name   varchar(20);                                                                                              000129
+ 000130     url    varchar(32);                                                                                              000130
+ 000131     hours  varchar(10);                                                                                              000131
+ 000132   end-ds;                                                                                                            000132
+ 000133                                                                                                                      000133
+ 000134   dcl-ds listCounts qualified;                                                                                       000134
+ 000135     completed  varchar(4);                                                                                           000135
+ 000136     dropped    varchar(4);                                                                                           000136
+ 000137     planned    varchar(4);                                                                                           000137
+ 000138     current    varchar(4);                                                                                           000138
+ 000139     paused     varchar(4);                                                                                           000139
+ 000140     repeat     varchar(4);                                                                                           000140
+ 000141   end-ds;                                                                                                            000141
+ 000142                                                                                                                      000142
+ 000143   dcl-s alApiUrl  varchar(128);                                                                                      000143
+ 000144   dcl-s reqHeader varchar(128);                                                                                      000144
+ 000145   dcl-s reqBody   varchar(256);                                                                                      000145
+ 000146                                                                                                                      000146
+ 000147 **END-FREE                                                                                                           000147
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page      6
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
  Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
  Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
- 000111 D                 DS                  STATIC                               SET                                       000111
- 000112 D  SQL_00000              1      2B 0 INZ(128)                             length of header                          000112
- 000113 D  SQL_00001              3      4B 0 INZ(1)                               statement number                          000113
- 000114 D  SQL_00002              5      8U 0 INZ(0)                               invocation mark                           000114
- 000115 D  SQL_00003              9      9A   INZ('0') CCSID(*JOBRUNMIX)           data is okay                              000115
- 000116 D  SQL_00004             10    128A   CCSID(*JOBRUNMIX)                    end of header                             000116
- 000117 D  SQL_00005            129    208A   CCSID(*JOBRUNMIX)                    S                                         000117
- 000118 D  SQL_00006            209    288A   CCSID(*JOBRUNMIX)                    S                                         000118
+ 000148 D                 DS                  STATIC                               SELECT                                    000148
+ 000149 D  SQL_00000              1      2B 0 INZ(128)                             length of header                          000149
+ 000150 D  SQL_00001              3      4B 0 INZ(1)                               statement number                          000150
+ 000151 D  SQL_00002              5      8U 0 INZ(0)                               invocation mark                           000151
+ 000152 D  SQL_00003              9      9A   INZ('0') CCSID(*JOBRUNMIX)           data is okay                              000152
+ 000153 D  SQL_00004             10    128A   CCSID(*JOBRUNMIX)                    end of header                             000153
+ 000154 D  SQL_00005            129    258A   VARYING CCSID(*JOBRUNMIX)            ALAPIURL                                  000154
+ 000155 D  SQL_00006            259    388A   VARYING CCSID(*JOBRUNMIX)            REQHEADER                                 000155
+ 000156 D  SQL_00007            389    646A   VARYING CCSID(*JOBRUNMIX)            REQBODY                                   000156
+ 000157 D  SQL_00008            647    658A   VARYING CCSID(*JOBRUNMIX)            USER.ID                                   000157
+ 000158 D  SQL_00009            659    680A   VARYING CCSID(*JOBRUNMIX)            USER.NAME                                 000158
+ 000159 D  SQL_00010            681    714A   VARYING CCSID(*JOBRUNMIX)            USER.URL                                  000159
+ 000160 D  SQL_00011            715    726A   VARYING CCSID(*JOBRUNMIX)            USER.HOURS                                000160
  Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
  Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
- 000119 **FREE                                                                                                               000119
- 000120 //*  exec SQL set :s = upper(:s);                                                                                    000120
- 000121           SQL_00005 = S;                                                        //SQL                                000121
- 000122           SQLER6 = -4;                                                          //SQL 1                              000122
- 000123           SQLROUTE_CALL(                                                        //SQL                                000123
- 000124                SQLCA                                                            //SQL                                000124
- 000125              : SQL_00000                                                        //SQL                                000125
- 000126           );                                                                    //SQL                                000126
- 000127           IF SQL_00003 = '1';                                                   //SQL                B01             000127
- 000128           EVAL S = SQL_00006;                                                   //SQL                 01             000128
- 000129           ENDIF;                                                                //SQL                E01             000129
- 000130   return s;                                                                                                          000130
- 000131 end-proc;                                                                                                            000131
+ 000161 **FREE                                                                                                               000161
+ 000162   alApiUrl = 'https://graphql.anilist.co';                                                                           000162
+ 000163   reqHeader = '<httpHeader><header name="Content-Type" value="application/json"/></httpHeader>';                     000163
+ 000164   reqBody = 'ä"query": "äUser(search:Ö"' + ALDIUSRNM + 'Ö")äid name siteUrl statsäwatchedTimeüüü"ü'                  000164
+ 000165                                                                                                                      000165
+ 000166 //*  exec SQL                                                                                                        000166
+ 000167 //*    select *                                                                                                      000167
+ 000168 //*    into :user                                                                                                    000168
+ 000169 //*    from json_table(                                                                                              000169
+ 000170 //*      Systools.HttpPostClob(:alApiUrl, cast(:reqHeader as clob), cast(:reqBody as clob)),                         000170
+ 000171 //*      '$'                                                                                                         000171
+ 000172 //*      columns(                                                                                                    000172
+ 000173 //*        id varchar(10) path '$.data.User.id',                                                                     000173
+ 000174 //*        name varchar(20) path '$.data.User.name',                                                                 000174
+ 000175 //*        url varchar(20) path '$.data.User.siteUrl',                                                               000175
+ 000176 //*        hours varchar(10) path '$.data.User.stats.watchedTime'                                                    000176
+ 000177 //*      )                                                                                                           000177
+ 000178 //*    );                                                                                                            000178
+ 000179           SQL_00005 = ALAPIURL;                                                 //SQL                                000179
+ ======>          aaaaaaaaa
+ *RNF5377 20 a      000179  The end of the expression is expected.
+ 000180           SQL_00006 = REQHEADER;                                                //SQL                                000180
+ 000181           SQL_00007 = REQBODY;                                                  //SQL                                000181
+ 000182           SQLER6 = -4;                                                          //SQL 1                              000182
+ 000183           SQLROUTE_CALL(                                                        //SQL                                000183
+ 000184                SQLCA                                                            //SQL                                000184
+ 000185              : SQL_00000                                                        //SQL                                000185
+ 000186           );                                                                    //SQL                                000186
+ 000187           IF SQL_00003 = '1';                                                   //SQL                B01             000187
+ 000188           EVAL USER.ID = SQL_00008;                                             //SQL                 01             000188
+ 000189           EVAL USER.NAME = SQL_00009;                                           //SQL                 01             000189
+ 000190           EVAL USER.URL = SQL_00010;                                            //SQL                 01             000190
+ 000191           EVAL USER.HOURS = SQL_00011;                                          //SQL                 01             000191
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page      7
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+ 000192           ENDIF;                                                                //SQL                E01             000192
+ 000193                                                                                                                      000193
+ 000194   ALDONAME = user.name;                                                                                              000194
+ 000195 end-proc;                                                                                                            000195
+ 000196                                                                                                                      000196
+ 000197                                                                                                                      000197
+ 000198 dcl-proc resetDspf;                                                                                                  000198
+ 000199   // For some reason, I need to reset indicators                                                                     000199
+ 000200   //   even after closing a DSPF successfully.                                                                       000200
+ 000201   //   I should look more into this at some point.                                                                   000201
+ 000202   dspf.exit = *OFF;                                                                                                  000202
+ 000203   dspf.cancel = *OFF;                                                                                                000203
+ 000204 end-proc;                                                                                                            000204
+ 000205                                                                                                                      000205
+ 000206                                                                                                                      000206
+ 000207 dcl-proc toUpper;                                                                                                    000207
+ 000208   dcl-pi *n char(80);                                                                                                000208
+ 000209     s char(80) value;                                                                                                000209
+ 000210   end-pi;                                                                                                            000210
+ 000211                                                                                                                      000211
+ 000212 **END-FREE                                                                                                           000212
+ Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+ 000213 D                 DS                  STATIC                               SET                                       000213
+ 000214 D  SQL_00012              1      2B 0 INZ(128)                             length of header                          000214
+ 000215 D  SQL_00013              3      4B 0 INZ(2)                               statement number                          000215
+ 000216 D  SQL_00014              5      8U 0 INZ(0)                               invocation mark                           000216
+ 000217 D  SQL_00015              9      9A   INZ('0') CCSID(*JOBRUNMIX)           data is okay                              000217
+ 000218 D  SQL_00016             10    128A   CCSID(*JOBRUNMIX)                    end of header                             000218
+ 000219 D  SQL_00017            129    208A   CCSID(*JOBRUNMIX)                    S                                         000219
+ 000220 D  SQL_00018            209    288A   CCSID(*JOBRUNMIX)                    S                                         000220
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+ 000221 **FREE                                                                                                               000221
+ 000222 //*  exec SQL                                                                                                        000222
+ 000223 //*    set :s = upper(:s);                                                                                           000223
+ 000224           SQL_00017 = S;                                                        //SQL                                000224
+ 000225           SQLER6 = -4;                                                          //SQL 2                              000225
+ 000226           SQLROUTE_CALL(                                                        //SQL                                000226
+ 000227                SQLCA                                                            //SQL                                000227
+ 000228              : SQL_00012                                                        //SQL                                000228
+ 000229           );                                                                    //SQL                                000229
+ 000230           IF SQL_00015 = '1';                                                   //SQL                B01             000230
+ 000231           EVAL S = SQL_00018;                                                   //SQL                 01             000231
+ 000232           ENDIF;                                                                //SQL                E01             000232
+ 000233   return s;                                                                                                          000233
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page      8
+ Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+ 000234 end-proc;                                                                                                            000234
         * * * * *   E N D   O F   S O U R C E   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      6
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page      9
            A d d i t i o n a l   D i a g n o s t i c   M e s s a g e s
   Msg id  Sv   Statement    Message text
- *RNF7066 00        000007  Record-Format ALDR002 not used for input or output.
- *RNF7089 00        000007  RPG provides Separate-Indicator area for file ALDSPF.
+ *RNF7089 00        000008  RPG provides Separate-Indicator area for file ALDSPF.
   * * * * *   E N D   O F   A D D I T I O N A L   D I A G N O S T I C   M E S S A G E S   * * * * *
+                  O u t p u t   B u f f e r   P o s i t i o n s
+ Line   Start End   Field or Constant
+ Number Pos   Pos
+    2000002     1    32 ALDOURL
+    2000003    33    52 ALDIUSRNM
+    2000004    53    62 ALDOHOURS
+    2000005    63    72 ALDOID
+    2000006    73    92 ALDONAME
+    2000007    93    96 ALDOLCOMP
+    2000008    97   100 ALDOLDROP
+    2000009   101   104 ALDOLPLAN
+    2000010   105   108 ALDOLCURR
+    2000011   109   112 ALDOLPAUS
+    2000012   113   116 ALDOLREPT
+    2000013   117   146 ALDOERROR
+  * * * * *   E N D   O F   O U T P U T   B U F F E R   P O S I T I O N   *  * * * *
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      7
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page     10
                            C r o s s   R e f e r e n c e
        File and Record References:
           File              Device             References (D=Defined)
             Record
-          ALDSPF            WORKSTN                000007D     000083
-            ALDR001                                000007D    1000001     3000001      000086
-            ALDR002                                000007D    2000001     4000001
+          ALDSPF            WORKSTN                000008D     000087
+            ALDR001                                000008D    1000001     2000001      000105
+                                                   000110M     000113      000119
        Global Field References:
           Field             Attributes         References (D=Defined M=Modified)
- *RNF7031 ALDFUSR           A(24)                 1000002D
-          DSPF              DS(99)                 000007      000009D     000085      000101M
-            EXIT            N(1)                   000010D     000085      000101
- *RNF7031   REFRESH         N(1)                   000011D
-          MAIN              PROTOTYPE              000003      000014D     000082
-          RESETDSPF         PROTOTYPE              000089M     000097
- *RNF7031 SQFAPP            CONST                  000081D
- *RNF7031 SQFCRT            CONST                  000079D
- *RNF7031 SQFOVR            CONST                  000080D
- *RNF7031 SQFRD             CONST                  000078D
- *RNF7031 SQLABC            B(9,0)                 000023D
- *RNF7031 SQLAID            A(8)                   000021D
-          SQLCA             DS(136)                000019D     000057      000062      000066
-                                                   000070      000124
-          SQLCABC           I(10,0)                000022D     000023
-          SQLCAID           A(8)                   000020D     000021
-          SQLCLSE           CONST                  000065      000076D
- *RNF7031 SQLCLSE_CALL      PROTOTYPE              000065D
-          SQLCMIT           CONST                  000069      000077D
- *RNF7031 SQLCMIT_CALL      PROTOTYPE              000069D
- *RNF7031 SQLCOD            B(9,0)                 000025D
-          SQLCODE           I(10,0)                000024D     000025
- *RNF7031 SQLERL            B(4,0)                 000027D
- *RNF7031 SQLERM            A(70)                  000029D
- *RNF7031 SQLERP            A(8)                   000031D
-          SQLERR            A(24)                  000032D     000033      000034      000035
-                                                   000036      000037      000038      000039
- *RNF7031 SQLERRD(6)        I(10,0)                000039D
-          SQLERRMC          A(70)                  000028D     000029
-          SQLERRML          I(5,0)                 000026D     000027
-          SQLERRP           A(8)                   000030D     000031
- *RNF7031 SQLER1            B(9,0)                 000033D
- *RNF7031 SQLER2            B(9,0)                 000034D
- *RNF7031 SQLER3            B(9,0)                 000035D
- *RNF7031 SQLER4            B(9,0)                 000036D
- *RNF7031 SQLER5            B(9,0)                 000037D
-          SQLER6            B(9,0)                 000038D     000122M
-          SQLOPEN           CONST                  000061      000075D
- *RNF7031 SQLOPEN_CALL      PROTOTYPE              000061D
-          SQLROUTE          CONST                  000056      000074D
-          SQLROUTE_CALL     PROTOTYPE              000056D     000123M
-          SQLSTATE          A(5)                   000053D     000054
- *RNF7031 SQLSTT            A(5)                   000054D
- *RNF7031 SQLWARN(11)       A(1)                   000052D
- *RNF7031 SQLWNA            A(1)                   000051D
+          ALDIUSRNM         A(20)                 1000002M    2000003      000111      000164
+          ALDOERROR         A(30)                 2000013      000118M
+          ALDOHOURS         A(10)                 2000004
+          ALDOID            A(10)                 2000005
+          ALDOLCOMP         A(4)                  2000007
+          ALDOLCURR         A(4)                  2000010
+          ALDOLDROP         A(4)                  2000008
+          ALDOLPAUS         A(4)                  2000011
+          ALDOLPLAN         A(4)                  2000009
+          ALDOLREPT         A(4)                  2000012
+          ALDONAME          A(20)                 2000006      000194M
+          ALDOURL           A(32)                 2000002
+          DSPF              DS(99)                 000008      000010D     000104      000107
+                                                   000107      000109      000202M     000203M
+            CANCEL          N(1)                   000013D     000107      000203
+            EXIT            N(1)                   000011D     000104      000107      000202
+            REFRESH         N(1)                   000012D     000109
+          DSPFLOOP          PROTOTYPE              000093M     000102
+          MAIN              PROTOTYPE              000003      000016D     000084
+          QUERYANILIST      PROTOTYPE              000112M     000124
+          RESETDSPF         PROTOTYPE              000096M     000198
+ *RNF7031 SQFAPP            CONST                  000083D
+ *RNF7031 SQFCRT            CONST                  000081D
+ *RNF7031 SQFOVR            CONST                  000082D
+ *RNF7031 SQFRD             CONST                  000080D
+ *RNF7031 SQLABC            B(9,0)                 000025D
+ *RNF7031 SQLAID            A(8)                   000023D
+          SQLCA             DS(136)                000021D     000059      000064      000068
+                                                   000072      000184      000227
+          SQLCABC           I(10,0)                000024D     000025
+          SQLCAID           A(8)                   000022D     000023
+          SQLCLSE           CONST                  000067      000078D
+ *RNF7031 SQLCLSE_CALL      PROTOTYPE              000067D
+          SQLCMIT           CONST                  000071      000079D
+ *RNF7031 SQLCMIT_CALL      PROTOTYPE              000071D
+ *RNF7031 SQLCOD            B(9,0)                 000027D
+          SQLCODE           I(10,0)                000026D     000027
+ *RNF7031 SQLERL            B(4,0)                 000029D
+ *RNF7031 SQLERM            A(70)                  000031D
+ *RNF7031 SQLERP            A(8)                   000033D
+          SQLERR            A(24)                  000034D     000035      000036      000037
+                                                   000038      000039      000040      000041
+ *RNF7031 SQLERRD(6)        I(10,0)                000041D
+          SQLERRMC          A(70)                  000030D     000031
+          SQLERRML          I(5,0)                 000028D     000029
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      8
- *RNF7031 SQLWN0            A(1)                   000041D
- *RNF7031 SQLWN1            A(1)                   000042D
- *RNF7031 SQLWN2            A(1)                   000043D
- *RNF7031 SQLWN3            A(1)                   000044D
- *RNF7031 SQLWN4            A(1)                   000045D
- *RNF7031 SQLWN5            A(1)                   000046D
- *RNF7031 SQLWN6            A(1)                   000047D
- *RNF7031 SQLWN7            A(1)                   000048D
- *RNF7031 SQLWN8            A(1)                   000049D
- *RNF7031 SQLWN9            A(1)                   000050D
-          SQLWRN            A(11)                  000040D     000041      000042      000043
-                                                   000044      000045      000046      000047
-                                                   000048      000049      000050      000051
-                                                   000052
-          TOUPPER           A(80)                  000105
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page     11
+          SQLERRP           A(8)                   000032D     000033
+ *RNF7031 SQLER1            B(9,0)                 000035D
+ *RNF7031 SQLER2            B(9,0)                 000036D
+ *RNF7031 SQLER3            B(9,0)                 000037D
+ *RNF7031 SQLER4            B(9,0)                 000038D
+ *RNF7031 SQLER5            B(9,0)                 000039D
+          SQLER6            B(9,0)                 000040D     000182M     000225M
+          SQLOPEN           CONST                  000063      000077D
+ *RNF7031 SQLOPEN_CALL      PROTOTYPE              000063D
+          SQLROUTE          CONST                  000058      000076D
+          SQLROUTE_CALL     PROTOTYPE              000058D     000183M     000226M
+          SQLSTATE          A(5)                   000055D     000056
+ *RNF7031 SQLSTT            A(5)                   000056D
+ *RNF7031 SQLWARN(11)       A(1)                   000054D
+ *RNF7031 SQLWNA            A(1)                   000053D
+ *RNF7031 SQLWN0            A(1)                   000043D
+ *RNF7031 SQLWN1            A(1)                   000044D
+ *RNF7031 SQLWN2            A(1)                   000045D
+ *RNF7031 SQLWN3            A(1)                   000046D
+ *RNF7031 SQLWN4            A(1)                   000047D
+ *RNF7031 SQLWN5            A(1)                   000048D
+ *RNF7031 SQLWN6            A(1)                   000049D
+ *RNF7031 SQLWN7            A(1)                   000050D
+ *RNF7031 SQLWN8            A(1)                   000051D
+ *RNF7031 SQLWN9            A(1)                   000052D
+          SQLWRN            A(11)                  000042D     000043      000044      000045
+                                                   000046      000047      000048      000049
+                                                   000050      000051      000052      000053
+                                                   000054
+          TOUPPER           A(80)                  000207
                             PROTOTYPE
        Field References for subprocedure MAIN
           Field             Attributes         References (D=Defined M=Modified)
           No references in the source.
+       Field References for subprocedure DSPFLOOP
+          Field             Attributes         References (D=Defined M=Modified)
+          No references in the source.
+       Field References for subprocedure QUERYANILIST
+          Field             Attributes         References (D=Defined M=Modified)
+          ALAPIURL          A(128)                 000143D     000162M
+                            VARYING(2)
+ *RNF7031 LISTCOUNTS        DS(36)                 000134D
+ *RNF7031   COMPLETED       A(4)                   000135D
+                            VARYING(2)
+ *RNF7031   CURRENT         A(4)                   000138D
+                            VARYING(2)
+ *RNF7031   DROPPED         A(4)                   000136D
+                            VARYING(2)
+ *RNF7031   PAUSED          A(4)                   000139D
+                            VARYING(2)
+ *RNF7031   PLANNED         A(4)                   000137D
+                            VARYING(2)
+ *RNF7031   REPEAT          A(4)                   000140D
+                                                    ** WWW.PUB400.COM **
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page     12
+                            VARYING(2)
+          REQBODY           A(256)                 000145D     000164M     000181
+                            VARYING(2)
+          REQHEADER         A(128)                 000144D     000163M     000180
+                            VARYING(2)
+          SQL_00000         B(4,0)                 000149D     000185
+ *RNF7031 SQL_00001         B(4,0)                 000150D
+ *RNF7031 SQL_00002         U(10,0)                000151D
+          SQL_00003         A(1)                   000152D     000187
+ *RNF7031 SQL_00004         A(119)                 000153D
+          SQL_00005         A(128)                 000154D     000179
+                            VARYING(2)
+          SQL_00006         A(128)                 000155D     000180M
+                            VARYING(2)
+          SQL_00007         A(256)                 000156D     000181M
+                            VARYING(2)
+          SQL_00008         A(10)                  000157D     000188
+                            VARYING(2)
+          SQL_00009         A(20)                  000158D     000189
+                            VARYING(2)
+          SQL_00010         A(32)                  000159D     000190
+                            VARYING(2)
+          SQL_00011         A(10)                  000160D     000191
+                            VARYING(2)
+          USER              DS(80)                 000127D     000188M     000189M     000190M
+                                                   000191M     000194
+            HOURS           A(10)                  000131D     000191
+                            VARYING(2)
+            ID              A(10)                  000128D     000188
+                            VARYING(2)
+            NAME            A(20)                  000129D     000189      000194
+                            VARYING(2)
+            URL             A(32)                  000130D     000190
+                            VARYING(2)
        Field References for subprocedure RESETDSPF
           Field             Attributes         References (D=Defined M=Modified)
           No references in the source.
        Field References for subprocedure TOUPPER
           Field             Attributes         References (D=Defined M=Modified)
-          S                 A(80)                  000107D     000121      000128M     000130
-          SQL_00000         B(4,0)                 000112D     000125
- *RNF7031 SQL_00001         B(4,0)                 000113D
- *RNF7031 SQL_00002         U(10,0)                000114D
-          SQL_00003         A(1)                   000115D     000127
- *RNF7031 SQL_00004         A(119)                 000116D
-          SQL_00005         A(80)                  000117D     000121M
-          SQL_00006         A(80)                  000118D     000128
+          S                 A(80)                  000209D     000224      000231M     000233
+          SQL_00012         B(4,0)                 000214D     000228
+ *RNF7031 SQL_00013         B(4,0)                 000215D
+ *RNF7031 SQL_00014         U(10,0)                000216D
+          SQL_00015         A(1)                   000217D     000230
+ *RNF7031 SQL_00016         A(119)                 000218D
+          SQL_00017         A(80)                  000219D     000224M
+          SQL_00018         A(80)                  000220D     000231
        Indicator References:
           Indicator                            References (D=Defined M=Modified)
         * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page      9
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page     13
                        E x t e r n a l   R e f e r e n c e s
        Statically bound procedures:
           Procedure                            References
@@ -579,30 +987,30 @@ RNS9304:  Program ANILIST placed in library OTTEB1. 00 highest severity. Created
           No references in the source.
     * * * * *   E N D   O F   E X T E R N A L   R E F E R E N C E S   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page     10
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page     14
                            M e s s a g e   S u m m a r y
   Msg id  Sv Number Message text
- *RNF7031 00     37 The name or indicator is not referenced.
- *RNF7066 00      1 Record-Format name of Externally-Described file is not used.
+ *RNF7031 00     45 The name or indicator is not referenced.
  *RNF7089 00      1 RPG provides Separate-Indicator area for file.
+ *RNF5377 20      1 The end of the expression is expected.
         * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
                                                     ** WWW.PUB400.COM **
-  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/07/19 18:05:32        Page     11
+  5770WDS V7R3M0  160422 RN        IBM ILE RPG             OTTEB1/ANILIST           PUB400     12/08/19 20:47:33        Page     15
                              F i n a l   S u m m a r y
    Message Totals:
-     Information  (00) . . . . . . . :       39
+     Information  (00) . . . . . . . :       46
      Warning      (10) . . . . . . . :        0
-     Error        (20) . . . . . . . :        0
+     Error        (20) . . . . . . . :        1
      Severe Error (30+)  . . . . . . :        0
      ---------------------------------  -------
-     Total . . . . . . . . . . . . . :       39
+     Total . . . . . . . . . . . . . :       47
    Source Totals:
-     Records . . . . . . . . . . . . :      136
-     Specifications  . . . . . . . . :      105
+     Records . . . . . . . . . . . . :      249
+     Specifications  . . . . . . . . :      184
      Data records  . . . . . . . . . :        0
-     Comments  . . . . . . . . . . . :       20
+     Comments  . . . . . . . . . . . :       48
           * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
- Program ANILIST placed in library OTTEB1. 00 highest severity. Created on 12/07/19 at 18:05:33.
+ Compilation stopped. Severity 20 errors found in program.
            * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
                                                     ** WWW.PUB400.COM **
-Build finished!
+gmake: *** [makefile:40: anilist.sqlrpgle] Error 1
