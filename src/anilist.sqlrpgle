@@ -15,24 +15,6 @@ end-ds;
 
 dcl-pr main extPgm('ANILIST') end-pr;
 
-// Utils 
-
-dcl-pr openFile pointer extproc('_C_IFS_fopen');
-  *n pointer value; // file name
-  *n pointer value; // file mode
-end-pr;
-
-dcl-pr writeFile pointer extproc('_C_IFS_fputs');
-  *n pointer value; // string to write
-  *n pointer value; // open mode
-end-pr;
-
-dcl-pr closeFile extproc('_C_IFS_fclose');
-  *n pointer value; // misc pointer
-end-pr;
-
-// -----
-
 
 dcl-proc main;
 
@@ -60,8 +42,7 @@ dcl-proc dspfLoop;
       if (dspf.cancel or dspf.exit);
         leave;
       elseif (dspf.refresh);
-        ALDOERROR = '';
-        write ALDR001;
+        clear ALDR001;
       elseif (ALDIUSRNM <> *BLANK);
         queryAnilist ();
         write ALDR001;
@@ -115,7 +96,7 @@ dcl-proc queryAnilist;
     ' value="application/json"/>' +
     '</httpHeader>';
   reqBody = '{"query": "{User(search:\"' +
-    'barrettotte' +  //%trim(ALDIUSRNM) +
+    %trim(ALDIUSRNM) +
     '\"){id name siteUrl stats{watchedTime}}}"}';
   
   monitor;
@@ -148,24 +129,12 @@ dcl-proc queryAnilist;
     ALDOURL = user.url;
     ALDOHOURS = user.hours;
 
-    // todo : DRY
+    
+    // todo : call API for media lists
 
   on-error;
     ALDOERROR = 'Error in queryAnilist()';
   endmon;
-
-  // todo : move to util subproc
-  // ===================DEBUG response=========================
-  // pathFile = '/home/OTTEB/Anilist-IBMi/response.txt' + x'00';
-  // openMode = 'w, o_ccsid=1252' + x'00';
-  // filePtr = openFile(%addr(pathFile): %addr(openMode));
-  // if (filePtr = *null);
-  //   dsply ('Unable to open file.');
-  //   return;
-  // endif;
-  // writeFile(%addr(response): filePtr);
-  // closeFile(%addr(pathFile));
-  // ==========================================================
 
 end-proc;
 
@@ -177,15 +146,4 @@ dcl-proc resetDspf;
   clear ALDR001;
   dspf.exit = *OFF;
   dspf.cancel = *OFF;
-end-proc;
-
-
-dcl-proc toUpper;
-  dcl-pi *n char(80);
-    s char(80) value;
-  end-pi;
-
-  exec SQL 
-    set :s = upper(:s);
-  return s;
 end-proc;
