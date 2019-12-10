@@ -8,11 +8,17 @@ This is my first IBM i side project using GNU Make, git, and VS Code.
 I still used SDA for display files because its a lot less tedious.
 
 
+## Running
+* Ensure that CCSID is 37 -   ```chgjob ccsid(37)```
+* ```call Anilist```
+
+
 ## Commands
 * Build - ```gmake all```
 * Clean - ```gmake clean```
 * Log - ```gmake > buildlog.txt 2>&1```
-* Copy dspf - ```gmake copy``` (still using SDA for DSPFs)
+* Pull to IFS - ```gmake pull``` (still using SDA for DSPFs)
+* Push to Library - ```gmake push``` 
 * Pushing - ```git -c http.sslVerify=false push origin master```
 
 
@@ -43,16 +49,9 @@ echo PATH=$PATH:/QOpenSys/pkgs/bin >> ~/.profile
 ```
 
 
-## Random notes
-* Using SysTools.HTTP* needs a CCSID of 37
-  * ```chgjob ccsid(37)```
-  * ```dspsysval sysval(QCCSID)``` - cannot be 65535
-  * https://www.scottklement.com/presentations/Options%20for%20Consuming%20REST%20APIs%20from%20RPG.pdf
-
-
 ## References
 * RPG & DB2 Summit 2019 - Liam's session on git + IBMi
 * https://github.com/NielsLiisberg/RPG-vsCode-Getting-Started
 * Fix DSPF open in linear main https://www.rpgpgm.com/2018/09/closing-all-files-with-one-operation-in.html
-* /SET https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_72/rzasd/cdset.htm
-* /RESTORE https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_72/rzasd/cdrestore.htm
+* https://www.scottklement.com/presentations/Options%20for%20Consuming%20REST%20APIs%20from%20RPG.pdf
+

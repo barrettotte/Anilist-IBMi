@@ -82,13 +82,6 @@ dcl-proc queryAnilist;
   dcl-s reqBody   varchar(256);
 
   // /restore ccsid(*CHAR)
-
-  // ======= Debug response =======
-  dcl-s pathFile  char(50);
-  dcl-s openMode  char(100);
-  dcl-s filePtr   pointer inz;
-  dcl-s response  varchar(4000);
-  // ==============================
   
   alApiUrl = 'https://graphql.anilist.co';
   reqHeader = '<httpHeader>' + 
@@ -129,7 +122,6 @@ dcl-proc queryAnilist;
     ALDOURL = user.url;
     ALDOHOURS = user.hours;
 
-    
     // todo : call API for media lists
 
   on-error;
