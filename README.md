@@ -11,6 +11,8 @@ This is my first IBM i side project using GNU Make, git, and VS Code.
 I still used SDA for display files because its a lot less tedious.
 
 
+![docs/screenshot.png](docs/screenshot.png)
+
 
 ## Running
 * Ensure that CCSID is 37 -   ```chgjob ccsid(37)```
