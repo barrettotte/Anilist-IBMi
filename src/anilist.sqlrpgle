@@ -8,15 +8,21 @@ ctl-opt datfmt(*iso) timfmt(*iso);
 dcl-f ALDSPF workStn(*ext) indDs(dspf) usropn;
 
 dcl-ds dspf qualified;
-  exit     ind  pos(3);
-  refresh  ind  pos(5);
-  cancel   ind  pos(12);
+  exit    ind pos(3);
+  refresh ind pos(5);
+  cancel  ind pos(12);
 end-ds;
+
+dcl-s reqUrl    char(64);
+dcl-s reqHeader char(128);
 
 dcl-pr main extPgm('ANILIST') end-pr;
 
 
 dcl-proc main;
+  reqUrl = 'https://graphql.anilist.co';
+  reqHeader = '<httpHeader><header name="Content-Type"' + 
+    ' value="application/json"/></httpHeader>';
 
   monitor;
     open ALDSPF;
@@ -24,13 +30,11 @@ dcl-proc main;
     dsply ('Could not open display file ALDSPF');
     return;
   endmon;
-
   dspfLoop ();
 
   on-exit;
     resetDspf ();
     close *ALL;
-
 end-proc;
 
 
@@ -44,7 +48,8 @@ dcl-proc dspfLoop;
       elseif (dspf.refresh);
         clear ALDR001;
       elseif (ALDIUSRNM <> *BLANK);
-        queryAnilist ();
+        getUser ();
+        getMediaLists ();
         write ALDR001;
       endif;
       
@@ -56,86 +61,110 @@ dcl-proc dspfLoop;
 end-proc;
 
 
-dcl-proc queryAnilist;
-  // todo take user as param, return resp DS
+dcl-proc getMediaLists;
 
-  // /set ccsid(*CHAR:37)
+  dcl-ds listCounts qualified;
+    completed varchar(4);
+    dropped   varchar(4);
+    planned   varchar(4);
+    current   varchar(4);
+    paused    varchar(4);
+    repeat    varchar(4);
+  end-ds;
+  
+  dcl-s reqBody varchar(256);
+  reqBody = '{"query": "{MediaListCollection(userId:' + ALDOID + 
+    ', type:ANIME){lists{name entries {id}}}}"}';
+
+  monitor;
+    // Get media list entries, count them by type, 
+    //   and pivot the resultset for easy insert to DS
+    exec SQL
+      with ml as (
+        select 
+          upper(name) as name,
+          id
+        from json_table(
+          Systools.HttpPostClob(:reqUrl, :reqHeader, :reqBody),
+          '$.data.MediaListCollection.lists[*]' columns(
+            name char(32) path '$.name',
+            nested '$.entries[*]' columns(
+              id char(32) path '$.id'
+            )
+          )
+        )
+      )
+      select
+        (select count(*) from ml where name = 'COMPLETED') as completed,
+        (select count(*) from ml where name = 'DROPPED'  ) as dropped,
+        (select count(*) from ml where name = 'PLANNING' ) as planned,
+        (select count(*) from ml where name = 'WATCHING' ) as current,
+        (select count(*) from ml where name = 'PAUSED'   ) as paused,
+        (select count(*) from ml where name = 'REPEATING') as repeat
+      into :listCounts
+      from ml
+      limit 1;
+
+    ALDOLCOMP = listCounts.completed;
+    ALDOLDROP = listCounts.dropped;
+    ALDOLPLAN = listCounts.planned;
+    ALDOLCURR = listCounts.current;
+    ALDOLPAUS = listCounts.paused;
+    ALDOLREPT = listCounts.repeat;
+  on-error;
+    ALDOERROR = 'Error in getMediaLists ()';
+  endmon;
+  return;
+end-proc;
+
+
+dcl-proc getUser;
 
   dcl-ds user qualified;
-    id     varchar(10);
-    name   varchar(20);
-    url    varchar(32);
-    hours  varchar(10);
-  end-ds;
-  
-  dcl-ds listCounts qualified;
-    completed  varchar(4);
-    dropped    varchar(4);
-    planned    varchar(4);
-    current    varchar(4);
-    paused     varchar(4);
-    repeat     varchar(4);
+    id       varchar(10);
+    username varchar(18);
+    url      varchar(32);
+    hours    varchar(10);
   end-ds;
 
-  dcl-s alApiUrl  varchar(128);
-  dcl-s reqHeader varchar(128);
-  dcl-s reqBody   varchar(256);
-
-  // /restore ccsid(*CHAR)
-  
-  alApiUrl = 'https://graphql.anilist.co';
-  reqHeader = '<httpHeader>' + 
-    '<header name="Content-Type"' + 
-    ' value="application/json"/>' +
-    '</httpHeader>';
-  reqBody = '{"query": "{User(search:\"' +
-    %trim(ALDIUSRNM) +
+  dcl-s reqBody varchar(256);
+  reqBody = '{"query": "{User(search:\"' + %trim(ALDIUSRNM) +
     '\"){id name siteUrl stats{watchedTime}}}"}';
   
   monitor;
     exec SQL
       select
         id,
-        name,
+        username,
         url,
         (minutes / 60) as hours 
       into :user
-      from json_table(cast(
-        Systools.HttpPostClob(
-          cast(:alApiUrl  as clob ccsid 37),
-          cast(:reqHeader as clob ccsid 37),
-          cast(:reqBody   as clob ccsid 37)
-        )
-        as clob ccsid 37
-      ), 
+      from json_table(
+        Systools.HttpPostClob(:reqUrl, :reqHeader, :reqBody),
       '$.data.User'
       columns(
         id       varchar(10) path '$.id',
-        name     varchar(20) path '$.name',
+        username varchar(20) path '$.name',
         url      varchar(32) path '$.siteUrl',
         minutes  varchar(10) path '$.stats.watchedTime'
       )
-    ) as X;
+    );
     
     ALDOID = user.id;
-    ALDONAME = user.name;
-    ALDOURL = user.url;
+    ALDONAME = user.username;
     ALDOHOURS = user.hours;
-
-    // todo : call API for media lists
-
+    ALDOURL = user.url;
   on-error;
-    ALDOERROR = 'Error in queryAnilist()';
+    ALDOERROR = 'Error in getUser()';
   endmon;
 
+  return;
 end-proc;
 
 
 dcl-proc resetDspf;
-  // For some reason, I need to reset indicators 
-  //   even after closing a DSPF successfully. 
-  //   I should look more into this at some point.
   clear ALDR001;
   dspf.exit = *OFF;
   dspf.cancel = *OFF;
 end-proc;
+

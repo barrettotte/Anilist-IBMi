@@ -2,10 +2,14 @@
 
 
 A basic display file and RPGLE program built over the Anilist GraphQL API (Just for fun/practice).
+Enter an Anilist username
+Its not meant to be a full API wrapper or handle all errors.
 
+I wanted to make some dedicated UDF's and clean up my code, but its good enough for such a simple application.
 
 This is my first IBM i side project using GNU Make, git, and VS Code.
 I still used SDA for display files because its a lot less tedious.
+
 
 
 ## Running
@@ -16,10 +20,10 @@ I still used SDA for display files because its a lot less tedious.
 ## Commands
 * Build - ```gmake all```
 * Clean - ```gmake clean```
-* Log - ```gmake > buildlog.txt 2>&1```
 * Pull to IFS - ```gmake pull``` (still using SDA for DSPFs)
 * Push to Library - ```gmake push``` 
-* Pushing - ```git -c http.sslVerify=false push origin master```
+* Log - ```gmake > buildlog.txt 2>&1```
+* Git push - ```git -c http.sslVerify=false push origin master```
 
 
 ## VS Code

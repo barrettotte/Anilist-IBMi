@@ -1,9 +1,9 @@
-     A*%%TS  SD  20191209  010846  OTTEB       REL-V7R3M0  5770-WDS
+     A*%%TS  SD  20191211  003314  OTTEB       REL-V7R3M0  5770-WDS
      A*%%EC
      A                                      DSPSIZ(24 80 *DS3)
      A                                      INDARA
      A          R ALDR001
-     A*%%TS  SD  20191209  010846  OTTEB       REL-V7R3M0  5770-WDS
+     A*%%TS  SD  20191211  003314  OTTEB       REL-V7R3M0  5770-WDS
      A                                      CA03(03 'EXIT')
      A                                      CA05(05 'REFRESH')
      A                                      CA12(12 'CANCEL')
@@ -17,18 +17,17 @@
      A                                  3 23'https://graphql.anilist.co'
      A                                  4 27'Barrett Otte  2019'
      A*
+     A            ALDONAME      18A  O  6 53
      A            ALDOURL       32A  O  7 43
-     A                                  8  5'Username ...'
-     A            ALDIUSRNM     18A  B  8 18CHECK(LC)
+     A                                 10  5'Username ...'
+     A            ALDIUSRNM     18A  B 10 18CHECK(LC)
+     A                                 13  5'Id .........'
+     A            ALDOID        10A  O 13 18
+     A                                 15  5'Hours'
      A                                 18 41'+-----------------+----------------
      A                                      +'
-     A                                 17  5'Hours'
-     A                                 18  5'watched ....'
-     A            ALDOHOURS     10A  O 18 18
-     A                                 11  5'Id .........'
-     A            ALDOID        10A  O 11 18
-     A                                 14  5'Name .......'
-     A            ALDONAME      20A  O 14 18
+     A                                 16  5'watched ....'
+     A            ALDOHOURS     10A  O 16 18
      A                                  8 41'+-----------------+----------------
      A                                      +'
      A                                  9 41'!'

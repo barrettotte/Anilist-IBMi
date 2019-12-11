@@ -28,6 +28,7 @@ pull:
 
 push:
 	system "CPYFRMSTMF FROMSTMF('./src/anilist.sqlrpgle') TOMBR('/QSYS.lib/$(BIN_LIB).lib/QRPGLESRC.file/anilist.mbr') MBROPT(*REPLACE)"
+
 # ----------------------------------------------------------------------------
 
 %.lib:
