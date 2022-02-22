@@ -3,7 +3,7 @@
 
 A basic display file and RPGLE program built over the Anilist GraphQL API (Just for fun/practice).
 Enter an Anilist username and display basic account stats.
-This is not meant to be a full API wrapper or handle all errors.
+This is not meant to be a full API wrapper or handle all errors. 
 
 I wanted to make some dedicated UDF's and clean up my code, but its good enough for such a simple application.
 
